@@ -56,3 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Adds support for setting & reading environment variables in the Unix shell
 gem 'figaro'
+
+gem 'bootstrap'
+gem 'devise'
+gem 'jquery-rails'
+gem 'simple_form'
