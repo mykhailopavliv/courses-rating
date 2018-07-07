@@ -24,3 +24,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore RubyMine configuration
+/.idea
+
+# Ignore application configuration
+/config/application.yml
