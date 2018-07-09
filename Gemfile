@@ -58,6 +58,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+# acts as taggable on allows you to specify an arbitrary number of tag "contexts"
+# that can be used locally or in combination in the same way steroids was used.
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bootstrap'
 gem 'devise'
 # Adds support for setting & reading environment variables in the Unix shell
