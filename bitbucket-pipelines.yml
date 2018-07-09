@@ -1,0 +1,36 @@
+image: ruby:2.5.1
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+         name: rubocop
+         script:
+           - gem install rubocop
+           - rubocop
+
+      - step:
+          name: rspec
+          caches:
+            - bundler
+          script:
+            - apt-get update -qq && apt-get install -yqq nodejs
+            - gem install bundler  --no-ri --no-rdoc
+            - bundle install -j $(nproc) --path vendor
+            - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/tests
+            - bundle exec rake db:setup RAILS_ENV=test
+            - bundle exec rake db:test:prepare RAILS_ENV=test
+            - bundle exec rspec
+          services:
+            - database
+
+definitions:
+  services:
+    database:
+      image: postgres
+      environment:
+        POSTGRES_DB: tests
+        POSTGRES_USER: test_user
+        POSTGRES_PASSWORD: test_user_password
+  caches:
+    bundler: ./vendor

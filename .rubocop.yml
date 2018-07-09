@@ -1,0 +1,23 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'it']
+  Exclude:
+    - 'db/schema.rb'
+    - 'config/environments/*.rb'
+
+Metrics/LineLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
