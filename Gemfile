@@ -58,9 +58,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-# Adds support for setting & reading environment variables in the Unix shell
 gem 'bootstrap'
 gem 'devise'
+# Adds support for setting & reading environment variables in the Unix shell
 gem 'figaro'
 gem 'jquery-rails'
 gem 'simple_form'
