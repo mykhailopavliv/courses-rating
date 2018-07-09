@@ -49,6 +49,8 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  # This is a small gem which causes rails console to open pry. It therefore depends on pry.
+  gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
