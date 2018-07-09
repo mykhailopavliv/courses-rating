@@ -13,13 +13,17 @@
 #
 # Configure Using Gemfile
 # gem 'pg'
-#
+
 default: &default
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
+    # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: localhost
+  username: <%= ENV['PDB_ROLE'] %>
+  password: <%= ENV['PDB_PASSWD'] %>
 
 development:
   <<: *default
@@ -81,5 +85,3 @@ test:
 production:
   <<: *default
   database: project_x_production
-  username: project_x
-  password: <%= ENV['PROJECT_X_DATABASE_PASSWORD'] %>
