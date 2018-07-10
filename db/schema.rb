@@ -10,12 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_07_10_192916) do
 
-=======
-ActiveRecord::Schema.define(version: 2018_07_10_191525) do
->>>>>>> c9d94c4f3e6ae97bc7dc92086373f6d9b8c86030
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,8 +29,9 @@ ActiveRecord::Schema.define(version: 2018_07_10_191525) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
+    t.bigint "organization_id"
     t.string "slug"
+    t.index ["organization_id"], name: "index_courses_on_organization_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -47,9 +44,13 @@ ActiveRecord::Schema.define(version: 2018_07_10_191525) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
-=======
-    t.bigint "organization_id"
-    t.index ["organization_id"], name: "index_courses_on_organization_id"
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.string "uid"
+    t.string "provider"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -58,14 +59,6 @@ ActiveRecord::Schema.define(version: 2018_07_10_191525) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "identities", force: :cascade do |t|
-    t.string "uid"
-    t.string "provider"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_identities_on_user_id"
->>>>>>> c9d94c4f3e6ae97bc7dc92086373f6d9b8c86030
   end
 
   create_table "reviews", force: :cascade do |t|
