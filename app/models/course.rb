@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  belongs_to :organization
   belongs_to :city
   has_many :reviews
 

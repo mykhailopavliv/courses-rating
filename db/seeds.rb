@@ -25,4 +25,4 @@ user = User.create(first_name: 'Pavlo',
                    email: 'pavlokasianchuk@gmail.com',
                    password: 'pavlopass')
 
-Review.create!(text: 'The best Rugby course', author_id: user.id, course_id: course_pivorak.id)
+Review.create!(text: 'The best Rugby course', author_id: user.id, course: course_pivorak)
