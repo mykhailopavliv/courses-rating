@@ -1,0 +1,25 @@
+%html
+  %head
+    %title Project X
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-light
+      %div.container
+        = link_to "Home", root_path, class: "navbar-brand"
+        %ul.navbar-nav.nounderline
+          %li.nav-link
+            = link_to "Courses", courses_path
+          %li.nav-link
+            = link_to "Log In", new_user_session_path
+    - if notice
+      %p.alert.alert-success
+        = notice
+    - if alert
+      %p.alert.alert-danger
+        = alert
+    %div.container.mainpage
+      = yield
+

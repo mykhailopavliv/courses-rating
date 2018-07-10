@@ -3,6 +3,9 @@ AllCops:
   Exclude:
     - 'db/migrate/*.rb'
     - 'db/schema.rb'
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'config/initializers/simple_form.rb'
+
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'it']

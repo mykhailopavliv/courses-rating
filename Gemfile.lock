@@ -101,6 +101,8 @@ GEM
     ffi (1.9.25)
     figaro (1.1.1)
       thor (~> 0.14)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -307,6 +309,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   figaro
+  friendly_id
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails
