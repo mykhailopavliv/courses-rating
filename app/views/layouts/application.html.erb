@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <%= link_to "Home", root_path, class: "navbar-brand" %>
+        <ul class="navbar-nav nounderline">
+          <li class='nav-link'><%= link_to "Courses", courses_path %></li>
+          <li class='nav-link'><%= link_to "Log In", new_user_session_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <div class="container mainpage">
+      <%= yield %>
+    </div>
   </body>
 </html>

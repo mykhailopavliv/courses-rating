@@ -1,1 +1,46 @@
+/*
+*= require_tree .
+*= require_self
+*/
 @import 'bootstrap';
+
+body {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.alert {
+  text-align: center
+}
+
+.homepage-output {
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  font-size: 50px;
+}
+
+.navbar {
+  font-size: 20px;
+  height: 100px;
+  background: #f7f7f7
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.mainpage {
+  margin-top: 20px;
+}
+
+.nounderline a {
+  text-decoration: none;
+}
+
+.navbar-nav a {
+  color: black;
+}
+
+.navbar-nav a:hover {
+  color: grey;
+}
