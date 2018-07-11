@@ -70,6 +70,6 @@ gem 'bootstrap'
 gem 'devise'
 # Adds support for setting & reading environment variables in the Unix shell
 gem 'figaro'
+gem 'friendly_id'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'friendly_id'
