@@ -8,7 +8,7 @@ module Users
     def facebook
       user = handler.authenticate
       if user
-        flash[:success] = SUCCESS
+        flash[:notice] = SUCCESS
         sign_in_and_redirect(user)
       else
         flash[:alert] = ALERT
