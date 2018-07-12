@@ -29,5 +29,8 @@ module ProjectX
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    I18n.available_locales = %i[en ua]
+    config.i18n.default_locale = :ua
   end
 end

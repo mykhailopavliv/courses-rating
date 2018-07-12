@@ -25,5 +25,13 @@
       %p.alert.alert-danger
         = alert
     %div.container.mainpage
-      = yield
+      %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown"}
+        = t('.language')
+        %span.caret
+      %ul.dropdown-menu
+        %li
+          = link_to t('.ukraine'), url_for(:locale => :ua)
+        %li
+          = link_to t('.english'), url_for(:locale => :en)
 
+      = yield

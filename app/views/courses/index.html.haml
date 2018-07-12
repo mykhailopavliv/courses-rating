@@ -2,4 +2,9 @@
   - @courses.each do |course|
     = link_to course.title, course
     %hr
+    = link_to t('.show'), course
+    = link_to t('.edit'), edit_course_path(course)
+    = link_to t('.destroy'), course, method: :delete, data: { confirm: 'Are you sure?' }
 
+.mt-5
+= link_to t('.new'), new_course_path
