@@ -1,6 +1,9 @@
 %div.row
   %div.col-md-4
-    Course image
+    %p
+      Course logo here:
+      = if @course.logo.attached?
+        = image_tag @course.logo
   %div.col-md-8
     %h2 
       = @course.title

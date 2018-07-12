@@ -18,6 +18,7 @@ ua:
       show: Показати
       back: Назад
     form:
+      logo: Логотип
       title: Назва
       description: Опис
       url: Сайт

@@ -18,6 +18,7 @@ en:
       show: Show
       back: Back
     form:
+      logo: Logo
       title: Title
       description: Description
       url: Site
