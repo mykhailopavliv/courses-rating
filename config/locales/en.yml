@@ -2,8 +2,8 @@ en:
   layouts:
     application:
       language: Language
-      ukraine: ukraine
-      english: english
+      ukraine: Ukrainian
+      english: English
   courses:
     index:
       show: Show

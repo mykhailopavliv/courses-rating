@@ -2,8 +2,8 @@ ua:
   layouts:
     application:
       language: Мова
-      ukraine: ураїнська
-      english: англійська
+      ukraine: Українська
+      english: Англійська
   courses:
     index:
       show: Показати
