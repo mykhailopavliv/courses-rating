@@ -1,9 +1,10 @@
 %div.row
   %div.col-md-4
     %p
-      Course logo here:
-      = if @course.logo.attached?
+      - if @course.logo.attached?
         = image_tag @course.logo
+      - else
+        Course logo here:
   %div.col-md-8
     %h2 
       = @course.title

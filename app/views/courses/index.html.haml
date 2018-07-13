@@ -1,5 +1,9 @@
 %div.text-center
   - @courses.each do |course|
+    -#- if course.logo.attached?
+    = image_tag(course.logo, alt: "MyInc Logo")
+    -#- else
+    -#  Your Course Logo Here
     = link_to course.title, course
     %hr
     = link_to t('.show'), course

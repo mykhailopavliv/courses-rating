@@ -1,7 +1,8 @@
 = simple_form_for course do |f|
   -#- if @course.logo.attached?
   -#  = @course.logo.preview(resize_to_limit: [100, 100])
-  = f.input :logo, as: :file, accept: 'image/png,image/jpeg', label: t('.logo')
+  -#= f.file_field :logo, label: 'bla-bla', accept: 'image/png,image/jpeg'
+  = f.input :logo, as: :file, input_html: { accept: 'image/png,image/jpeg' }, label: t('.logo')
   = f.input :title, label: t('.title')
   = f.input :description, label: t('.description')
   = f.input :url, label: t('.url')

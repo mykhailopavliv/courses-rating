@@ -1,18 +1,9 @@
 namespace :db do
-  desc 'Loads the seed data for course tags'
-  task seed_add_basic_tags: :environment do
+  desc 'Loads the seed data for course attach logo'
+  task seed_add_pivorak_logo: :environment do
     course = Course.find_by_title('#pivorak Ruby Summer Course 2018')
-    course.tag_list.add('ruby', 'rails')
-    course.save
-  end
-
-  desc 'Loads the seed data for course organization'
-  task seed_add_basic_organization: :environment do
-    organization = Organization.create(name: 'Pivorak',
-                                       site: 'https://pivorak.com',
-                                       description: 'Львівське об’єднання розробників')
-    course = Course.find_by_title('#pivorak Ruby Summer Course 2018')
-    course.organization = organization
-    course.save
+    pivorak_logo_full_path = Rails.root.join('app/assets/images/pivorak logo/pivorak_logo.png')
+    course.logo.attach(io: File.open(pivorak_logo_full_path),
+                       filename: 'pivorak_logo.png')
   end
 end

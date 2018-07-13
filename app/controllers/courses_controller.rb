@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    @courses = Course.all # with_attached_logo
   end
 
   def show
@@ -24,6 +24,7 @@ class CoursesController < ApplicationController
   end
 
   def update
+    # binding.pry
     if course.update(course_params)
       redirect_to root_path, notice: 'Course was successfully updated.'
     else
