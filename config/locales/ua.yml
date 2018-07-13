@@ -4,6 +4,9 @@ ua:
       language: Мова
       ukraine: Українська
       english: Англійська
+      courses: Курси
+      login: Вхід
+      logout: Вихід
   courses:
     index:
       show: Показати

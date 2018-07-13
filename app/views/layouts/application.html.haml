@@ -8,7 +8,7 @@
   %body
     %nav.navbar.navbar-expand-lg.navbar-light
       %div.container
-        = link_to "Home", root_path, class: "navbar-brand"
+        = link_to "Project X", root_path, class: "navbar-brand"
         %ul.navbar-nav.nounderline
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{"data-toggle"=>"dropdown"}
@@ -19,13 +19,13 @@
               %a
                 = link_to t('.english'), url_for(locale: :en), class: 'dropdown-item'
           %li.nav-item
-            = link_to "Courses", courses_path, class: 'nav-link'     
+            = link_to t('.courses'), courses_path, class: 'nav-link'     
           - if current_user.nil?
             %li.nav-item
-              = link_to "Log In", user_facebook_omniauth_authorize_path, class: 'nav-link'
+              = link_to t('.login'), user_facebook_omniauth_authorize_path, class: 'nav-link'
           - else
             %li.nav-item
-              = link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
+              = link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
     - if notice
       %p.alert.alert-success
         = notice
