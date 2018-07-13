@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @courses = Course.all
+    @pagy, @courses = pagy(Course.all, items: 5)
   end
 
   def show

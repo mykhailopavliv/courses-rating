@@ -26,3 +26,8 @@ ua:
       organization: Організація
       tags: Теги
       save: Зберегти
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Попередня"
+      next: "Наступна&nbsp;&rsaquo;"
+      gap: "&hellip;"

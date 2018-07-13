@@ -26,3 +26,8 @@ en:
       organization: Organization
       tags: Tags
       save: Save
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Prev"
+      next: "Next&nbsp;&rsaquo;"
+      gap: "&hellip;"
