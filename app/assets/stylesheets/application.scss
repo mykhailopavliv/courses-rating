@@ -38,3 +38,5 @@ body {
 .nounderline a {
   text-decoration: none;
 }
+
+.dropdown-toggle::after { border: none; }

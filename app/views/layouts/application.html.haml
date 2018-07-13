@@ -10,8 +10,16 @@
       %div.container
         = link_to "Home", root_path, class: "navbar-brand"
         %ul.navbar-nav.nounderline
+          %li.nav-item.dropdown
+            %a.nav-link.dropdown-toggle{"data-toggle"=>"dropdown"}
+              = t('.language')
+            %div.dropdown-menu
+              %a
+                = link_to t('.ukraine'), url_for(locale: :ua), class: 'dropdown-item'
+              %a
+                = link_to t('.english'), url_for(locale: :en), class: 'dropdown-item'
           %li.nav-item
-            = link_to "Courses", courses_path, class: 'nav-link'
+            = link_to "Courses", courses_path, class: 'nav-link'     
           - if current_user.nil?
             %li.nav-item
               = link_to "Log In", user_facebook_omniauth_authorize_path, class: 'nav-link'
@@ -25,13 +33,4 @@
       %p.alert.alert-danger
         = alert
     %div.container.mainpage
-      %div.text-center
-        %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown"}
-          = t('.language')
-        %ul.dropdown-menu
-          %li
-            = link_to t('.ukraine'), url_for(:locale => :ua), class: 'dropdown-item'
-          %li
-            = link_to t('.english'), url_for(:locale => :en), class: 'dropdown-item'
-
       = yield
