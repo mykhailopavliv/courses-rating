@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
 
   def create
     if create_course.save
-      redirect_to root_path, notice: 'Course was successfully created.'
+      redirect_to courses_path, notice: 'Course was successfully created.'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
 
   def update
     if course.update(course_params)
-      redirect_to root_path, notice: 'Course was successfully updated.'
+      redirect_to course_path(course), notice: 'Course was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
 
   def destroy
     course.destroy
-    redirect_to root_path, notice: 'Course was successfully destroyed.'
+    redirect_to courses_path, notice: 'Course was successfully destroyed.'
   end
 
   private
