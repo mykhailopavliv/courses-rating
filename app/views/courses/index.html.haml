@@ -1,9 +1,7 @@
 %div.text-center
   - @courses.each do |course|
-    -#- if course.logo.attached?
-    = image_tag(course.logo, alt: "MyInc Logo")
-    -#- else
-    -#  Your Course Logo Here
+    - present course do |course_presenter|
+      %p= image_tag course_presenter.logo, size: '240x200'
     = link_to course.title, course
     %hr
     = link_to t('.show'), course
