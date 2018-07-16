@@ -3,7 +3,7 @@
     %div.btn-group.float-right
       = button_to t('.show'), course, method: :get, class: 'btn btn-success'
       = button_to t('.edit'), edit_course_path(course), method: :get, class: 'btn btn-warning'
-      = button_to t('.destroy'), course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+      = button_to t('.destroy'), course, method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
     = link_to course.title, course
     %hr
 %div.text-center

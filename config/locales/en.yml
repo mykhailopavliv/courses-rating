@@ -16,10 +16,16 @@ en:
     new:
       new: New course
       back: Back
+    create:
+      created: Course was successfully created
+    update:
+      updated: Course was successfully updated
     edit:
       editing: Editing course
       show: Show
       back: Back
+    destroy:
+      destroyed: Course was successfully destroyed
     form:
       title: Title
       description: Description
@@ -29,6 +35,11 @@ en:
       organization: Organization
       tags: Tags
       save: Save
+      confirmation: Are you sure?
+    review:
+      review-title: Reviews
+      add-review: Add review
+      submit-button: Submit
   pagy:
     nav:
       prev: "&lsaquo;&nbsp;Prev"

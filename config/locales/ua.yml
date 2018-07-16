@@ -13,6 +13,10 @@ ua:
       edit: Редагувати
       destroy: Видалити
       new: Новий курс
+    create:
+      created: Курс був успішно створений
+    update:
+      updated: Курс був успішно оновлений
     new:
       new: Новий курс
       back: Назад
@@ -20,6 +24,8 @@ ua:
       editing: Редагувати курс
       show: Показати
       back: Назад
+    destroy:
+      destroyed: Курс був успішно видалений
     form:
       title: Назва
       description: Опис
@@ -29,6 +35,11 @@ ua:
       organization: Організація
       tags: Теги
       save: Зберегти
+      confirmation: Ви впевнені?
+    review:
+      review-title: Комменти
+      add-review: Новий коммент
+      submit-button: Додати
   pagy:
     nav:
       prev: "&lsaquo;&nbsp;Попередня"
