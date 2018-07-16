@@ -1,13 +1,12 @@
 module ApplicationHelper
   include Pagy::Frontend
 
-  def present(model)
+  def present(model, presenter_class = nil)
     return if model.blank?
 
-    klass     = "#{model.class}Presenter".constantize
+    klass     = presenter_class || "#{model.class}Presenter".constantize
     presenter = klass.new(model, self)
 
     yield(presenter) if block_given?
-    presenter
   end
 end

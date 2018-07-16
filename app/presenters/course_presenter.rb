@@ -1,6 +1,8 @@
 class CoursePresenter < BasePresenter
+  presents :course
+
   def logo
-    return model.logo if model.logo.attached?
+    return course.logo if course.logo.attached?
     'default logo/logo.png'
   end
 end

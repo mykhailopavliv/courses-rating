@@ -26,7 +26,6 @@ class CoursesController < ApplicationController
   end
 
   def update
-    # binding.pry
     if course.update(course_params)
       redirect_to course_path(course), notice: t('.updated')
     else
