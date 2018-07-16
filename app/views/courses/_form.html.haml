@@ -6,5 +6,7 @@
   = f.input :organization_id, as: :select, collection: Organization.all,
     label: t('.organization')
   = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
-    label: t('.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2' }
-  = f.submit t('.save')
+    label: t('.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2 btn' }
+  = f.submit t('.save'), class: 'btn btn-success'
+  = link_to t('.back'), root_path, class: 'btn btn-danger'
+
