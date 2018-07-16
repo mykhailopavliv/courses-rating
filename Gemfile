@@ -77,3 +77,5 @@ gem 'jquery-rails'
 # MiniMagick gives you access to all the command line options ImageMagick has.
 gem 'mini_magick'
 gem 'simple_form'
+gem 'pagy'
+

@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @courses = Course.all # with_attached_logo
+    @pagy, @courses = pagy(Course.all, items: 5)
   end
 
   def show
@@ -17,7 +19,7 @@ class CoursesController < ApplicationController
 
   def create
     if create_course.save
-      redirect_to root_path, notice: 'Course was successfully created.'
+      redirect_to courses_path, notice: t('.created')
     else
       render :new
     end
@@ -26,7 +28,7 @@ class CoursesController < ApplicationController
   def update
     # binding.pry
     if course.update(course_params)
-      redirect_to root_path, notice: 'Course was successfully updated.'
+      redirect_to course_path(course), notice: t('.updated')
     else
       render :edit
     end
@@ -34,7 +36,7 @@ class CoursesController < ApplicationController
 
   def destroy
     course.destroy
-    redirect_to root_path, notice: 'Course was successfully destroyed.'
+    redirect_to courses_path, notice: t('.destroyed')
   end
 
   private

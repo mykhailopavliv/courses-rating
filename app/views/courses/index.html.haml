@@ -1,12 +1,14 @@
-%div.text-center
+%div
   - @courses.each do |course|
     - present course do |course_presenter|
       %p= image_tag course_presenter.logo, size: '240x200'
+    %div.btn-group.float-right
+      = button_to t('.show'), course, method: :get, class: 'btn btn-success'
+      = button_to t('.edit'), edit_course_path(course), method: :get, class: 'btn btn-warning'
+      = button_to t('.destroy'), course, method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
     = link_to course.title, course
     %hr
-    = link_to t('.show'), course
-    = link_to t('.edit'), edit_course_path(course)
-    = link_to t('.destroy'), course, method: :delete, data: { confirm: 'Are you sure?' }
+%div.text-center
+  = link_to t('.new'), new_course_path
 
-.mt-5
-= link_to t('.new'), new_course_path
+!= pagy_nav_bootstrap(@pagy)

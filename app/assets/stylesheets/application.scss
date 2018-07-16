@@ -39,10 +39,9 @@ body {
   text-decoration: none;
 }
 
-.navbar-nav a {
-  color: black;
-}
+.dropdown-toggle::after { border: none; }
 
-.navbar-nav a:hover {
-  color: grey;
+.pagination {
+  margin: 0 auto;
+  margin-top: 10px;
 }

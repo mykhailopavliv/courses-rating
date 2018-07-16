@@ -2,14 +2,21 @@ ua:
   layouts:
     application:
       language: Мова
-      ukraine: ураїнська
-      english: англійська
+      ukraine: Українська
+      english: Англійська
+      courses: Курси
+      login: Вхід
+      logout: Вихід
   courses:
     index:
       show: Показати
       edit: Редагувати
       destroy: Видалити
       new: Новий курс
+    create:
+      created: Курс був успішно створений
+    update:
+      updated: Курс був успішно оновлений
     new:
       new: Новий курс
       back: Назад
@@ -17,6 +24,8 @@ ua:
       editing: Редагувати курс
       show: Показати
       back: Назад
+    destroy:
+      destroyed: Курс був успішно видалений
     form:
       logo: Логотип
       title: Назва
@@ -27,3 +36,13 @@ ua:
       organization: Організація
       tags: Теги
       save: Зберегти
+      confirmation: Ви впевнені?
+    review:
+      review-title: Комменти
+      add-review: Новий коммент
+      submit-button: Додати
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Попередня"
+      next: "Наступна&nbsp;&rsaquo;"
+      gap: "&hellip;"

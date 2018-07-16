@@ -2,8 +2,11 @@ en:
   layouts:
     application:
       language: Language
-      ukraine: ukraine
-      english: english
+      ukraine: Ukrainian
+      english: English
+      courses: Courses
+      login: Log In
+      logout: Log Out
   courses:
     index:
       show: Show
@@ -13,10 +16,16 @@ en:
     new:
       new: New course
       back: Back
+    create:
+      created: Course was successfully created
+    update:
+      updated: Course was successfully updated
     edit:
       editing: Editing course
       show: Show
       back: Back
+    destroy:
+      destroyed: Course was successfully destroyed
     form:
       logo: Logo
       title: Title
@@ -27,3 +36,13 @@ en:
       organization: Organization
       tags: Tags
       save: Save
+      confirmation: Are you sure?
+    review:
+      review-title: Reviews
+      add-review: Add review
+      submit-button: Submit
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Prev"
+      next: "Next&nbsp;&rsaquo;"
+      gap: "&hellip;"
