@@ -2,7 +2,6 @@
   = f.input :title, label: t('.title')
   = f.input :description, label: t('.description')
   = f.input :url, label: t('.url')
-  = f.input :rating, label: t('.rating')
   = f.input :city_id, as: :select, collection: City.all, label: t('.city')
   = f.input :organization_id, as: :select, collection: Organization.all,
     label: t('.organization')
