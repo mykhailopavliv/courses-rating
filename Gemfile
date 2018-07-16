@@ -75,4 +75,5 @@ gem 'friendly_id'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'pagy'
+gem 'ratyrate'
 

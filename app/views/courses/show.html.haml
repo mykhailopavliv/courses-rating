@@ -20,10 +20,11 @@
       %b
         = t('courses.form.city')  
       = @course.city.name
-    %h5
+    %h5.float-left 
       %b
-        = t('courses.form.rating') 
-      = @course.rating
+        = t('courses.form.rating')
+    %div.float-left.rating 
+      = rating_for @course, 'rating', star: 5, disable: true
 
   %div.col-md-12.text-center
     %hr
