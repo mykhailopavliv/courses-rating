@@ -5,16 +5,16 @@ class ReviewsController < ApplicationController
     @review = @course.reviews.build(review_params)
     @review.author = current_user
     if @review.save
-      redirect_to course_path(@course), notice: 'Thank you for your review.'
+      redirect_to course_path(@course), notice: t('.created')
     else
-      redirect_to course_path(@course), alert: "#{@review.errors}"
+      redirect_to course_path(@course), alert: t('reviews.all.error')
     end
   end
 
   def destroy
     @review = @course.reviews.find(params[:id])
     @review.destroy
-    redirect_to course_path(@course), alert: 'Error'
+    redirect_to course_path(@course), notice: t('.destroyed')
   end
 
   private
