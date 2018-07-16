@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_124109) do
+ActiveRecord::Schema.define(version: 2018_07_16_132658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_124109) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
+    t.boolean "published"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
   end
 
@@ -111,6 +112,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_124109) do
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "published"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -154,6 +156,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_124109) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
