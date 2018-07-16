@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }, skip: %i[passwords registrations]
 
-  resources :courses
+  resources :courses do
+    resources :reviews, only: %i[create destroy]
+  end
   resources :users
 end

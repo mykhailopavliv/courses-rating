@@ -2,13 +2,38 @@
   %div.col-md-4
     Course image
   %div.col-md-8
-    %h2 
+    %h2
+      %b
+        = t('courses.form.title')
       = @course.title
-    %h5 
+    %h5
+      %b
+        = t('courses.form.description') 
       = @course.description
-    %h5 
-      = @course.url
+    %h5
+      = link_to t('courses.form.url'), @course.url
+    %h5
+      %b
+        = t('courses.form.organization') 
+      = link_to @course.organization.name, @course.organization.site
+    %h5
+      %b
+        = t('courses.form.city')  
+      = @course.city.name
+    %h5
+      %b
+        = t('courses.form.rating') 
+      = @course.rating
+
   %div.col-md-12.text-center
     %hr
-    %h2 
-      Comments
+    %div
+      %h4
+        = t('courses.review.review-title') 
+      = render @course.reviews
+    %hr
+
+    %div
+      %h4
+        = t('courses.review.add-review') 
+      = render 'reviews/form'
