@@ -43,6 +43,7 @@ describe CoursesController, type: :controller do
         post :create, params: course_params
       end.to change(ActiveStorage::Attachment, :count).by(1)
       expect(response.status).to eq(302)
+      expect(response).to redirect_to courses_path
     end
   end
 
@@ -61,6 +62,7 @@ describe CoursesController, type: :controller do
 
   it 'Delete' do
     expect { delete :destroy, params: { id: course.id } }.to change(Course, :count).by(0)
-    expect(response).to redirect_to root_path
+    expect(response.status).to eq(302)
+    expect(response).to redirect_to courses_path
   end
 end
