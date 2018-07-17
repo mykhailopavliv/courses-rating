@@ -1,0 +1,55 @@
+ua:
+  layouts:
+    application:
+      language: Мова
+      ukraine: Українська
+      english: Англійська
+      courses: Курси
+      login: Вхід
+      logout: Вихід
+  courses:
+    index:
+      show: Показати
+      edit: Редагувати
+      destroy: Видалити
+      new: Новий курс
+    create:
+      created: Курс був успішно створений
+    update:
+      updated: Курс був успішно оновлений
+    new:
+      new: Новий курс
+      back: Назад
+    edit:
+      editing: Редагувати курс
+      show: Показати
+      back: Назад
+    destroy:
+      destroyed: Курс був успішно видалений
+    form:
+      logo: Логотип
+      title: Назва
+      description: Опис
+      url: Сайт
+      city: Місто
+      organization: Організація
+      tags: Теги
+      save: Зберегти
+      confirmation: Ви впевнені?
+  reviews:
+    create:
+      created: Коммент був успішно видалений
+    destroy:
+      destroyed: Коммент був успішно видалений
+    all:
+      review-title: Комменти
+      add-review: Новий коммент
+      submit-button: Додати
+      error: Помилка
+      author: Автор
+      text: Текст
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Попередня"
+      next: "Наступна&nbsp;&rsaquo;"
+      gap: "&hellip;"

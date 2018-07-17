@@ -25,7 +25,7 @@ describe CoursesController, type: :controller do
     expect(response.status).to eq(200)
   end
 
-  context 'Post' do
+  context 'post' do
     let(:file_full_path) { Rails.root.join('app/assets/images/pivorak logo/pivorak_logo.png') }
     let(:mime_type) { 'image/png' }
     let(:file) { fixture_file_upload(file_full_path, mime_type) }
@@ -38,11 +38,12 @@ describe CoursesController, type: :controller do
       }
     end
 
+    subject(:post_create) { post :create, params: course_params }
+
     it 'Create' do
-      expect do
-        post :create, params: course_params
-      end.to change(ActiveStorage::Attachment, :count).by(1)
+      expect { post_create }.to change(ActiveStorage::Attachment, :count).by(1)
       expect(response.status).to eq(302)
+      expect(response).to redirect_to courses_path
     end
   end
 
@@ -61,6 +62,7 @@ describe CoursesController, type: :controller do
 
   it 'Delete' do
     expect { delete :destroy, params: { id: course.id } }.to change(Course, :count).by(0)
-    expect(response).to redirect_to root_path
+    expect(response.status).to eq(302)
+    expect(response).to redirect_to courses_path
   end
 end
