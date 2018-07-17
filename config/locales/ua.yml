@@ -27,6 +27,7 @@ ua:
     destroy:
       destroyed: Курс був успішно видалений
     form:
+      logo: Логотип
       title: Назва
       description: Опис
       url: Сайт

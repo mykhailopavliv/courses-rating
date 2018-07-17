@@ -15,3 +15,20 @@ $(document).ready(function() {
   });
 
 });
+
+$(document).ready(function () {
+    let img_preview = $('.upload-preview img');
+
+    $('.file-img').change(function (event) {
+
+        let input = $(event.currentTarget);
+        let file = input[0].files[0];
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            image_base64 = e.target.result;
+            img_preview.attr("src", image_base64);
+        };
+
+        reader.readAsDataURL(file);
+    });
+});

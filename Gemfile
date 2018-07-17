@@ -73,7 +73,7 @@ gem 'devise'
 gem 'figaro'
 gem 'friendly_id'
 gem 'jquery-rails'
-gem 'simple_form'
 gem 'pagy'
 gem 'ratyrate'
+gem 'simple_form'
 

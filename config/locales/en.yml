@@ -27,6 +27,7 @@ en:
     destroy:
       destroyed: Course was successfully destroyed
     form:
+      logo: Logo
       title: Title
       description: Description
       url: Site

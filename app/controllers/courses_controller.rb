@@ -56,6 +56,6 @@ class CoursesController < ApplicationController
     params
       .require(:course)
       .permit(:title, :description, :url, :rating, :slug, :city_id,
-              :organization_id, tag_list: [])
+              :organization_id, :logo, tag_list: [])
   end
 end

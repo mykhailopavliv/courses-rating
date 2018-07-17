@@ -1,6 +1,7 @@
 %div.row
   %div.col-md-4
-    Course image
+    - present @course do |course_presenter|
+      %p= image_tag course_presenter.logo, size: '240x200'
   %div.col-md-8
     %h2
       %b
