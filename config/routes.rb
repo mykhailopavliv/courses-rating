@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   }, skip: %i[passwords registrations]
 
   resources :courses do
+    get 'change-published-status', on: :member
+    get 'pending', on: :collection
     resources :reviews, only: %i[create destroy]
   end
   resources :users
