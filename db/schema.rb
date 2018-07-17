@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_132658) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
-    t.boolean "published"
+    t.boolean "published", default: false
     t.index ["organization_id"], name: "index_courses_on_organization_id"
   end
 
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_132658) do
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "published"
+    t.boolean "published", default: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

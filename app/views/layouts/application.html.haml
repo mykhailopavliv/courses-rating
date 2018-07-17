@@ -10,6 +10,8 @@
       %div.container
         = link_to "Project X", root_path, class: "navbar-brand"
         %ul.navbar-nav.nounderline
+          %li.nav-item.float-left
+            = link_to 'Pending', courses_path, class: 'nav-link'
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{"data-toggle"=>"dropdown"}
               = t('.language')

@@ -8,4 +8,8 @@ class Course < ApplicationRecord
 
   friendly_id :title, use: :slugged
   acts_as_taggable_on :tags
+
+  scope :published, -> { where(published: true) }
+
+  scope :unpublished, -> { where(published: false) }
 end
