@@ -5,15 +5,6 @@ class CoursesController < ApplicationController
     @pagy, @courses = pagy(Course.published, items: 5)
   end
 
-  def pending
-    @pagy, @courses = pagy(Course.unpublished, items: 5)
-  end
-
-  def change_published_status
-    course.toggle!(:published)
-    redirect_to pending_courses_path, notice: 'Course was approved'
-  end
-
   def show
     course
   end
