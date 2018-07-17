@@ -3,6 +3,8 @@
 //= require bootstrap
 //= require rails-ujs
 //= require select2
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .
 
 $(document).ready(function() {

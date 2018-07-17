@@ -31,16 +31,23 @@ ua:
       title: Назва
       description: Опис
       url: Сайт
-      rating: Рейтинг
       city: Місто
       organization: Організація
       tags: Теги
       save: Зберегти
       confirmation: Ви впевнені?
-    review:
+  reviews:
+    create:
+      created: Коммент був успішно видалений
+    destroy:
+      destroyed: Коммент був успішно видалений
+    all:
       review-title: Комменти
       add-review: Новий коммент
       submit-button: Додати
+      error: Помилка
+      author: Автор
+      text: Текст
   pagy:
     nav:
       prev: "&lsaquo;&nbsp;Попередня"

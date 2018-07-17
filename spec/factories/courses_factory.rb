@@ -8,11 +8,5 @@ FactoryBot.define do
     tag_list    Faker::Lorem.words(4)
     city
     organization
-    # after(:create) do |course|
-    #   course.logo.attach(
-    #     io: File.open(Rails.root.join('app/assets/images/pivorak logo/pivorak_logo.png')),
-    #     filename: 'pivorak_logo.png', content_type: 'image/png'
-    #   )
-    # end
   end
 end

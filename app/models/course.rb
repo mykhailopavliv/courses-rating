@@ -1,5 +1,7 @@
 class Course < ApplicationRecord
   extend FriendlyId
+  ratyrate_rateable 'rating'
+
   belongs_to :organization
   belongs_to :city
   has_many :reviews

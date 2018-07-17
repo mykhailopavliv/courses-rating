@@ -74,4 +74,6 @@ gem 'figaro'
 gem 'friendly_id'
 gem 'jquery-rails'
 gem 'pagy'
+gem 'ratyrate'
 gem 'simple_form'
+
