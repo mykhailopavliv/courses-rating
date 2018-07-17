@@ -30,16 +30,23 @@ en:
       title: Title
       description: Description
       url: Site
-      rating: Rating
       city: City
       organization: Organization
       tags: Tags
       save: Save
       confirmation: Are you sure?
-    review:
+  reviews:
+    create:
+      created: Review was successfully created
+    destroy:
+      destroyed: Review was successfully destroyed
+    all:
       review-title: Reviews
       add-review: Add review
       submit-button: Submit
+      error: Error
+      author: Author
+      text: Text
   pagy:
     nav:
       prev: "&lsaquo;&nbsp;Prev"
