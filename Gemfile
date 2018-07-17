@@ -73,9 +73,5 @@ gem 'devise'
 gem 'figaro'
 gem 'friendly_id'
 gem 'jquery-rails'
-# A ruby wrapper for ImageMagick or GraphicsMagick command line.
-# MiniMagick gives you access to all the command line options ImageMagick has.
-gem 'mini_magick'
-gem 'simple_form'
 gem 'pagy'
-
+gem 'simple_form'
