@@ -10,7 +10,8 @@ class CoursesController < ApplicationController
   end
 
   def new
-    new_course
+    @course = Course.new
+    authorize @course
   end
 
   def edit
