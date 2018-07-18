@@ -23,7 +23,6 @@ course_pivorak = Course.create(title:        title_pivorak,
                                url:          url_pivorak,
                                organization: organization,
                                city:         city_lviv,
-                               rating:       10,
                                tag_list:     %w[ruby rails])
 
 user = User.create(first_name: 'Pavlo',

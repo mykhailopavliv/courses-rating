@@ -1,36 +1,35 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-# and here https://github.com/tigrish/devise-i18n/blob/master/rails/locales/en.yml
+# Additional translations at https://github.com/tigrish/devise-i18n/blob/master/rails/locales/uk.yml
 
-en:
+ua:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "Ваш обліковий запис підтверджено. Ви увійшли в систему."
+      send_instructions: "Ви отримаєте лист з інструкціями щодо підтвердження вашого облікового запису протягом декількох хвилин."
+      send_paranoid_instructions: "Якщо Ваша електронна адреса існує в нашій базі даних, то протягом декількох хвилин Ви отримаєте лист з інструкціями щодо підтвердження Вашого облікового запису."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: "Ви вже увійшли в систему."
+      inactive: "Ваш обліковий запис ще не активовано."
+      invalid: "Некоректий %{authentication_keys} або пароль."
+      last_attempt: "У вас залишилась ще одна спроба перед блокуванням облікового запису."
+      locked: "Ваш обліковий запис заблоковано."
+      not_found_in_database: "Некоректий %{authentication_keys} або пароль."
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть в систему знову."
+      unauthenticated: "Вам необхідно увійти в систему чи зареєструватися."
+      unconfirmed: "Вам потрібно підтвердити Ваш обліковий запис."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Інструкції щодо підтвердження облікового запису"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Інструкції щодо відновлення пароля"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Інструкції щодо розблоковування облікового запису"
       email_changed:
-        subject: "Email Changed"
+        subject: "Email Змінено"
       password_change:
-        subject: "Password Changed"
+        subject: "Пароль змінено"
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: "Ви не можете увійти в систему обліковим записом %{kind}, тому що \"%{reason}\"."
+      success: "Успішний вхід в систему з облікового запису %{kind}."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
@@ -46,9 +45,9 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      already_signed_out: "Успішний вихід з системи."
+      signed_in: "Ви увійшли в систему."
+      signed_out: "Успішний вихід з системи."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

@@ -1,0 +1,63 @@
+en:
+  users:
+    omniauth_callbacks:
+      facebook:
+        loginned: You have successfully logged in
+        alert: User has invalid details. Please try again
+    index:
+      signin_with_facebook: Sign In With Facebook
+      logout: Logout
+  layouts:
+    application:
+      language: Language
+      ukraine: Ukrainian
+      english: English
+      courses: Courses
+      login: Log In
+      logout: Log Out
+  courses:
+    index:
+      show: Show
+      edit: Edit
+      destroy: Delete
+      new: New
+    new:
+      new: New course
+      back: Back
+    create:
+      created: Course was successfully created
+    update:
+      updated: Course was successfully updated
+    edit:
+      editing: Editing course
+      show: Show
+      back: Back
+    destroy:
+      destroyed: Course was successfully destroyed
+    form:
+      logo: Logo
+      title: Title
+      description: Description
+      url: Site
+      city: City
+      organization: Organization
+      tags: Tags
+      save: Save
+      confirmation: Are you sure?
+  reviews:
+    create:
+      created: Review was successfully created
+    destroy:
+      destroyed: Review was successfully destroyed
+    all:
+      review-title: Reviews
+      add-review: Add review
+      submit-button: Submit
+      error: Error
+      author: Author
+      text: Text
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Prev"
+      next: "Next&nbsp;&rsaquo;"
+      gap: "&hellip;"

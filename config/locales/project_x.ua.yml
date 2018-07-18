@@ -1,4 +1,12 @@
 ua:
+  users:
+    omniauth_callbacks:
+      facebook:
+        loginned: Ви успішно увійшли в систему
+        alert: Користувач має недійсні дані. Будь ласка спробуйте ще раз
+    index:
+      signin_with_facebook: Увійти через Facebook
+      logout: Вийти
   layouts:
     application:
       language: Мова
