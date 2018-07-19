@@ -5,14 +5,15 @@ class ReviewsController < ApplicationController
     @review = @course.reviews.build(review_params)
     @review.author = current_user
     if @review.save
-      redirect_to course_path(@course), notice: t('.created')
+      flash[:notice] = t('.created')
     else
-      redirect_to course_path(@course), alert: t('reviews.all.error')
+      flash[:alert] = t('reviews.all.error')
     end
+    redirect_to course_path(@course)
   end
 
   def destroy
-    @review = @course.reviews.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
     redirect_to course_path(@course), notice: t('.destroyed')
   end
@@ -20,7 +21,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:text, :user_id)
+    params.require(:review).permit(:text)
   end
 
   def set_course

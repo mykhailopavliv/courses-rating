@@ -2,7 +2,7 @@ class Courses::PendingController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(Course.unpublished, items: 5)
+    @pagy, @courses = pagy(Course.unpublished, items: 10)
   end
 
   def change_status
