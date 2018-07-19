@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_132658) do
+ActiveRecord::Schema.define(version: 2018_07_19_113319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2018_07_16_132658) do
     t.bigint "organization_id"
     t.string "slug"
     t.boolean "published"
+    t.bigint "owner_id"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
+    t.index ["owner_id"], name: "index_courses_on_owner_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -182,4 +184,5 @@ ActiveRecord::Schema.define(version: 2018_07_16_132658) do
   end
 
   add_foreign_key "courses", "organizations"
+  add_foreign_key "courses", "users", column: "owner_id"
 end
