@@ -48,6 +48,7 @@ group :development, :test do
   gem 'reek'
   gem 'rspec-rails', '~> 3.7'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'rails-controller-testing'
 end
 
 group :development do
