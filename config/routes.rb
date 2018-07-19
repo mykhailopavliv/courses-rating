@@ -19,5 +19,4 @@ Rails.application.routes.draw do
       get 'change_status', controller: 'pending'
     end
   end
-  resources :users
 end
