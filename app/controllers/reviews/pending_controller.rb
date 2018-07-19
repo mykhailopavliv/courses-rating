@@ -6,9 +6,8 @@ class Reviews::PendingController < ApplicationController
   end
 
   def change_status
-    puts params
     review.toggle!(:published)
-    redirect_to pending_reviews_path, notice: 'Review was approved'
+    redirect_to pending_reviews_path, notice: t('reviews.all.approved')
   end
 
   private

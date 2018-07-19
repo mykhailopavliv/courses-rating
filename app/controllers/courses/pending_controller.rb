@@ -7,7 +7,7 @@ class Courses::PendingController < ApplicationController
 
   def change_status
     course.toggle!(:published)
-    redirect_to pending_courses_path, notice: 'Course was approved'
+    redirect_to pending_courses_path, notice: t('courses.all.approved')
   end
 
   private
