@@ -22,6 +22,7 @@ course_pivorak = Course.create(title:        title_pivorak,
                                description:  desc_pivorak,
                                url:          url_pivorak,
                                organization: organization,
+                               free:         true,
                                city:         city_lviv,
                                tag_list:     %w[ruby rails])
 
