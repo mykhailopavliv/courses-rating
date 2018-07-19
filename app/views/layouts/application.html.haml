@@ -10,6 +10,13 @@
       %div.container
         = link_to 'Project X', root_path, class: 'navbar-brand'
         %ul.navbar-nav.nounderline
+          - if user_signed_in? && current_user.role?('admin')
+            %li.nav-item.dropdown
+              %a.nav-link.dropdown-toggle{"data-toggle"=>"dropdown"}
+                Admin
+              %div.dropdown-menu
+                %a
+                  = link_to 'Pending courses', pending_courses_path, class: 'dropdown-item'
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
               = t('.language')
