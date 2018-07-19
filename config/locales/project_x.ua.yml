@@ -46,6 +46,8 @@ ua:
       confirmation: Ви впевнені?
     all:
       approved: Course was approved
+      none: немає
+
   reviews:
     create:
       created: Коммент був успішно створений

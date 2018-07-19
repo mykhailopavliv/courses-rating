@@ -46,6 +46,7 @@ en:
       confirmation: Are you sure?
     all:
       approved: Course was approved
+      none: none
   reviews:
     create:
       created: Review was successfully created
