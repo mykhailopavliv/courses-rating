@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    course
+    @course = course
   end
 
   def new
@@ -55,9 +55,11 @@ class CoursesController < ApplicationController
   end
 
   def course_params
+    params[:course][:owner_id] = current_user.id
+
     params
       .require(:course)
       .permit(:title, :description, :url, :rating, :slug, :city_id,
-              :organization_id, :logo, tag_list: [])
+              :organization_id, :logo, :owner_id, tag_list: [])
   end
 end
