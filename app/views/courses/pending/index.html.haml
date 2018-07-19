@@ -1,0 +1,9 @@
+%div
+  - @courses.each do |course|
+    %div.btn-group.float-right
+      = button_to 'Approve', change_status_course_path(course), method: :get, class: 'btn btn-success'
+      = button_to 'Refuse', course, method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
+    = link_to course.title, course
+    %hr
+
+!= pagy_nav_bootstrap(@pagy)

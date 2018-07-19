@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :courses
   has_many :reviews
   has_many :identities, dependent: :destroy
+
+  def role?(role_name)
+    role == role_name
+  end
 end
