@@ -7,5 +7,6 @@ FactoryBot.define do
     tag_list    Faker::Lorem.words(4)
     city
     organization
+    user
   end
 end

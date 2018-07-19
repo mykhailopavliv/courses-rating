@@ -1,28 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe CoursePolicy do
+describe CoursePolicy do
+  subject { CoursePolicy.new(user, course) }
 
-  let(:user) { User.new }
+  let(:course) { create(:course) }
 
-  subject { described_class }
+  context 'for a visitor' do
+    let(:user) { nil }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { should permit_action(:show) }
+
+    it { should_not permit_action(:create) }
+    it { should_not permit(:new) }
+    it { should_not permit(:update) }
+    it { should_not permit(:edit) }
+    it { should_not permit(:destroy) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'for a user' do
+    let(:user) { create(:user) }
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { should permit(:show) }
+    it { should permit(:create) }
+    it { should permit(:new) }
+    it { should permit(:update) }
+    it { should permit(:edit) }
+    it { should permit(:destroy) }
   end
 end
