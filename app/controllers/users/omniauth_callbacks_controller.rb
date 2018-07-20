@@ -2,7 +2,6 @@
 
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
     def facebook
       user = handler.authenticate
       if user

@@ -45,10 +45,10 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
+  gem 'rails-controller-testing'
   gem 'reek'
   gem 'rspec-rails', '~> 3.7'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -78,4 +78,3 @@ gem 'pagy'
 gem 'rails-i18n', '~> 5.1'
 gem 'ratyrate'
 gem 'simple_form'
-

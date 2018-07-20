@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def create
     @review = course.reviews.build(review_params)
     @review.author = current_user
