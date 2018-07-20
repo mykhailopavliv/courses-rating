@@ -8,7 +8,7 @@ require 'rspec/rails'
 require 'spec_helper'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'pundit/matchers'
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
