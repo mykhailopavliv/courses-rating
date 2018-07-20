@@ -6,7 +6,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def index?
-    scope.where(published: true).exists?
+    show?
   end
 
   def show?
