@@ -3,28 +3,55 @@ require 'rails_helper'
 describe CoursePolicy do
   subject { CoursePolicy.new(user, course) }
 
-  let(:course) { create(:course) }
+  let(:user) { create(:user) }
 
-  context 'for a visitor' do
-    let(:user) { nil }
+  context 'published course' do
+    let(:course) { create(:course, published: true) }
 
-    it { should permit_action(:show) }
+    context 'for a visitor' do
+      let(:user) { nil }
 
-    it { should_not permit_action(:create) }
-    it { should_not permit(:new) }
-    it { should_not permit(:update) }
-    it { should_not permit(:edit) }
-    it { should_not permit(:destroy) }
+      it { is_expected.to permit_actions(%i[index show]) }
+      it { is_expected.to forbid_actions(%i[create new update edit destroy]) }
+    end
+
+    context 'for a user is not owner' do
+      it { is_expected.to permit_actions(%i[index show create new]) }
+      it { is_expected.to forbid_actions(%i[update edit destroy]) }
+    end
+
+    context 'for a user is owner' do
+      let(:course) { create(:course, owner_id: user.id, published: true) }
+
+      it { is_expected.to permit_actions(%i[index show create new update edit destroy]) }
+    end
   end
 
-  context 'for a user' do
-    let(:user) { create(:user) }
+  context 'unpublished course' do
+    let(:course) { create(:course) }
 
-    it { should permit(:show) }
-    it { should permit(:create) }
-    it { should permit(:new) }
-    it { should permit(:update) }
-    it { should permit(:edit) }
-    it { should permit(:destroy) }
+    context 'for a visitor' do
+      let(:user) { nil }
+
+      it { is_expected.to forbid_actions(%i[index show create new update edit destroy]) }
+    end
+
+    context 'for a user is not owner' do
+      it { is_expected.to permit_actions(%i[create new]) }
+      it { is_expected.to forbid_actions(%i[index show update edit destroy]) }
+    end
+
+    context 'for a user is owner' do
+      let(:course) { create(:course, owner_id: user.id) }
+
+      it { is_expected.to permit_actions(%i[create new]) }
+      it { is_expected.to forbid_actions(%i[index show update edit destroy]) }
+    end
+
+    context 'for a admin' do
+      let(:user) { create(:user, role: 'admin') }
+
+      it { is_expected.to permit_actions(%i[show create new update edit destroy]) }
+    end
   end
 end

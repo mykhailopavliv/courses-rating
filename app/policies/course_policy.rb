@@ -5,12 +5,18 @@ class CoursePolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    scope.where(published: true).exists?
+  end
+
+  def show?
+    return true if user.present? && user.role.eql?('admin')
+    scope.where(published: true).exists?
+  end
+
   def create?
     return false unless user.present?
     true
-    # true if user.role.eql?('admin')
-    # user.role.eql?('user')
-    # course.title.eql?('#pivorak Ruby Summer Course 2018')
   end
 
   def new?
@@ -18,8 +24,9 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def update?
-    true if user.role.eql?('admin')
-    user.present? && course.owner_id == user.id
+    return false unless user.present?
+    return true if user.role.eql?('admin')
+    course.owner_id == user.id && course.published?
   end
 
   def edit?
@@ -27,8 +34,9 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def destroy?
-    true if user.role.eql?('admin')
-    user.present? && course.owner_id == user.id
+    return false unless user.present?
+    return true if user.role.eql?('admin')
+    course.owner_id == user.id && course.published?
   end
 
   private
