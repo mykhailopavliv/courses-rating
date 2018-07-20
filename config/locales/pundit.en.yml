@@ -1,7 +1,7 @@
 en:
   pundit:
     default: 'You cannot perform this action.'
-    post_policy:
-      new?: 'You cannot create posts!'
-      edit?: 'You cannot edit this post!'
-      destroy?: 'You cannot destroy this post!'
+    course_policy:
+      new?: 'You cannot create course!'
+      edit?: 'You cannot edit this course!'
+      destroy?: 'You cannot destroy this course!'

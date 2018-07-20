@@ -1,6 +1,9 @@
 detectors:
   IrresponsibleModule:
     enabled: false
+  RepeatedConditional:
+    exclude:
+      - "CoursePolicy"
 
 exclude_paths:
   - db/migrate

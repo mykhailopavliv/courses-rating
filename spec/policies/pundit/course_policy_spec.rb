@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'support/shared_examples/admin_examples'
+# require 'support/shared_examples/admin_examples'
 
 describe CoursePolicy do
   subject { CoursePolicy.new(user, course) }
@@ -30,7 +30,8 @@ describe CoursePolicy do
     context 'for a admin' do
       let(:user) { create(:user, role: 'admin') }
 
-      it { is_expected.to permit_actions(%i[show create new update edit destroy]) }
+      include_examples 'admin examples', %i[show create new update edit destroy]
+      # it { is_expected.to permit_actions(%i[show create new update edit destroy]) }
     end
   end
 
