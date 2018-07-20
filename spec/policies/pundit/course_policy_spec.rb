@@ -15,9 +15,6 @@ describe CoursePolicy do
     end
 
     include_context 'user policy context', %i[index show create new], %i[update edit destroy]
-    # context 'for a user is not owner' do
-    #   include_examples 'user policy examples', %i[index show create new], %i[update edit destroy]
-    # end
 
     context 'for owner' do
       let(:course) { create(:course, owner_id: user.id, published: true) }
@@ -38,9 +35,6 @@ describe CoursePolicy do
     end
 
     include_context 'user policy context', %i[create new], %i[index show update edit destroy]
-    # context 'for a user is not owner' do
-    #   include_examples 'user policy examples', %i[create new], %i[index show update edit destroy]
-    # end
 
     context 'for owner' do
       let(:course) { create(:course, owner_id: user.id) }
