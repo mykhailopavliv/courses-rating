@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(Course.published, items: 5)
+    @pagy, @courses = pagy(policy_scope(Course), items: 5)
   end
 
   def show
