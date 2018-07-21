@@ -2,8 +2,10 @@ class ReviewsController < ApplicationController
   before_action :set_course
 
   def create
-    @review = @course.reviews.build(review_params)
+    @review        = @course.reviews.build(review_params)
     @review.author = current_user
+    authorize @review
+
     if @review.save
       redirect_to course_path(@course), notice: t('.created')
     else
@@ -13,6 +15,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = @course.reviews.find(params[:id])
+    authorize @review
+
     @review.destroy
     redirect_to course_path(@course), notice: t('.destroyed')
   end
