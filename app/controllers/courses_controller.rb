@@ -41,18 +41,15 @@ class CoursesController < ApplicationController
   private
 
   def course
-    @course = Course.friendly.find(params[:id])
-    authorize @course
+    @course = authorize Course.friendly.find(params[:id])
   end
 
   def new_course
-    @course = Course.new
-    authorize @course
+    @course = authorize Course.new
   end
 
   def create_course
-    @course = Course.new(course_params)
-    authorize @course
+    @course = authorize Course.new(course_params)
   end
 
   def course_params

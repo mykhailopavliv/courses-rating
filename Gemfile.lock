@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/varvet/pundit
+  revision: 66e49fa55b7eda82e850cfb7b2db2fce923b7bd3
+  specs:
+    pundit (2.0.0.beta1)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -181,8 +188,6 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     puma (3.11.4)
-    pundit (1.1.0)
-      activesupport (>= 3.0.0)
     pundit-matchers (1.6.0)
       rspec-rails (>= 3.0.0)
     rack (2.0.5)
@@ -331,7 +336,7 @@ DEPENDENCIES
   pry
   pry-rails
   puma (~> 3.11)
-  pundit
+  pundit!
   pundit-matchers (~> 1.6.0)
   rails (~> 5.2.0)
   rails-i18n (~> 5.1)
