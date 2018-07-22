@@ -18,6 +18,7 @@ class CoursesController < ApplicationController
   end
 
   def create
+    create_course.save!
     if create_course.save
       redirect_to courses_path, notice: t('.created')
     else
@@ -49,15 +50,11 @@ class CoursesController < ApplicationController
   end
 
   def create_course
+    params[:course][:owner_id] = current_user.id
     @course = authorize Course.new(course_params)
   end
 
   def course_params
-    params[:course][:owner_id] = current_user.id
-
-    params
-      .require(:course)
-      .permit(:title, :description, :url, :rating, :slug, :city_id,
-              :organization_id, :logo, :owner_id, tag_list: [])
+    permitted_attributes(@course || Course)
   end
 end

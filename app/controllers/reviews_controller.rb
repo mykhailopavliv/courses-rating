@@ -24,7 +24,8 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:text, :user_id)
+    permitted_attributes(Review)
+    # params.require(:review).permit(:text, :user_id)
   end
 
   def set_course

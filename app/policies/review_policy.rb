@@ -6,6 +6,10 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def permitted_attributes
+    %i[text user_id] if user.present?
+  end
+
   def create?
     return false unless user.present?
     return true if user.role.eql?('admin')

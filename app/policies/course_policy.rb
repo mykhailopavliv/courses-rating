@@ -6,6 +6,14 @@ class CoursePolicy < ApplicationPolicy
     end
   end
 
+  def permitted_attributes_for_create
+    default_course_attributes << :owner_id if user.present?
+  end
+
+  def permitted_attributes_for_update
+    default_course_attributes if user.present? && course.owner_id == user.id
+  end
+
   def index?
     show?
   end
@@ -44,5 +52,9 @@ class CoursePolicy < ApplicationPolicy
 
   def course
     record
+  end
+
+  def default_course_attributes
+    [:title, :description, :url, :rating, :city_id, :organization_id, :logo, tag_list: []]
   end
 end
