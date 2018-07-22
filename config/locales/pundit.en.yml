@@ -5,3 +5,6 @@ en:
       new?: 'You cannot create course!'
       edit?: 'You cannot edit this course!'
       destroy?: 'You cannot destroy this course!'
+    review_policy:
+      create?: 'You cannot create comments!'
+      destroy?: 'You cannot destroy comments!'
