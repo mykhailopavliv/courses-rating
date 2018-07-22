@@ -18,7 +18,6 @@ class CoursesController < ApplicationController
   end
 
   def create
-    create_course.save!
     if create_course.save
       redirect_to courses_path, notice: t('.created')
     else
