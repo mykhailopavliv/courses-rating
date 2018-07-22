@@ -1,7 +1,8 @@
 class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      return scope.all if user.present? && user.role.eql?('admin')
+      scope.where(published: true)
     end
   end
 

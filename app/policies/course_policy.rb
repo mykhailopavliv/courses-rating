@@ -2,7 +2,6 @@ class CoursePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       return scope.all if user.present? && user.role.eql?('admin')
-
       scope.where(published: true)
     end
   end
