@@ -10,5 +10,7 @@ class Course < ApplicationRecord
   has_many :reviews
   has_one_attached :logo
 
+  scope :published, -> { where(published: true) }
+  scope :unpublished, -> { where(published: false) }
   scope :free_courses, -> { where(free: true) }
 end
