@@ -62,9 +62,11 @@ ActiveRecord::Schema.define(version: 2018_07_19_132807) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
+    t.bigint "owner_id"
     t.boolean "published", default: false
     t.boolean "free"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
+    t.index ["owner_id"], name: "index_courses_on_owner_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -183,4 +185,5 @@ ActiveRecord::Schema.define(version: 2018_07_19_132807) do
   end
 
   add_foreign_key "courses", "organizations"
+  add_foreign_key "courses", "users", column: "owner_id"
 end

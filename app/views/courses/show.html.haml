@@ -32,13 +32,14 @@
 
   %div.col-md-12.text-center
     %hr
-    %div
-      %h4
-        = t('reviews.all.review-title') 
-      = render @course.reviews.published
-    %hr
+      %div
+        %h4
+          = t('reviews.all.review-title')
+        = render policy_scope(@course.reviews)
 
-    %div
-      %h4
-        = t('reviews.all.add-review') 
-      = render 'reviews/form'
+    - if policy(@course.reviews.new).create?
+      %hr
+      %div
+        %h4
+          = t('reviews.all.add-review')
+        = render 'reviews/form'
