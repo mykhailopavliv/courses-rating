@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(Course.published, items: 5)
+    @pagy, @courses = pagy(policy_scope(Course), items: 5)
   end
 
   def show
@@ -42,21 +42,19 @@ class CoursesController < ApplicationController
   private
 
   def course
-    @course = Course.find(params[:id])
+    @course = authorize Course.friendly.find(params[:id])
   end
 
   def new_course
-    @course = Course.new
+    @course = authorize Course.new
   end
 
   def create_course
-    @course = Course.new(course_params)
+    params[:course][:owner_id] = current_user.id
+    @course = authorize Course.new(course_params)
   end
 
   def course_params
-    params
-      .require(:course)
-      .permit(:title, :description, :url, :rating, :slug, :city_id,
-              :organization_id, :logo, tag_list: [])
+    permitted_attributes(@course || Course)
   end
 end
