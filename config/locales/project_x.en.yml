@@ -1,4 +1,24 @@
 en:
+  home:
+    index:
+      show: Show
+    form:
+      title: Title
+      city: City
+      organization: Organization
+      tags: Tags
+      search: Search
+      clear: Clear Form
+  courses:
+    form:
+      title: Title
+      description: Description
+      url: Site
+      rating: Rating
+      city: City
+      organization: Organization
+      tags: Tags
+      save: Save
   users:
     omniauth_callbacks:
       facebook:
@@ -39,6 +59,7 @@ en:
       title: Title
       description: Description
       url: Site
+      rating: Rating
       city: City
       organization: Organization
       tags: Tags
@@ -60,6 +81,8 @@ en:
       error: Error
       author: Author
       text: Text
+      facebook: Facebook
+      author_url: Visit
   pagy:
     nav:
       prev: "&lsaquo;&nbsp;Prev"

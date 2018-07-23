@@ -3,18 +3,10 @@
 //= require bootstrap
 //= require rails-ujs
 //= require select2
+//= require select2-field
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .
-
-$(document).ready(function() {
-
-  $('.select2').select2({
-   tags: true,
-   tokenSeparators: [","]
-  });
-
-});
 
 $(document).ready(function () {
     let img_preview = $('.upload-preview img');

@@ -9,7 +9,7 @@
       = @course.title
     %h5
       %b
-        = t('courses.form.description') 
+        = t('courses.form.description')
       = @course.description
     %h5
       = link_to t('courses.form.url'), @course.url
@@ -22,12 +22,12 @@
         = t('courses.all.none')
     %h5
       %b
-        = t('courses.form.city')  
+        = t('courses.form.city')
       = @course.city.name
-    %h5.float-left 
+    %h5.float-left
       %b
         = t('courses.form.rating')
-    %div.float-left.rating 
+    %div.float-left.rating
       = rating_for @course, 'rating', star: 5, disable: true
 
   %div.col-md-12.text-center

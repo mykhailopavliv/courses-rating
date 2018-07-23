@@ -1,0 +1,16 @@
+= simple_form_for :course, method: :get do |f|
+
+  = f.input :title, label: t('.title'), required: false,
+  input_html: { class: 'search_field_cities', value: params.dig(:course, :title)  }
+  = f.input :city_id, as: :select, collection: City.all.map{ |city| city.name },
+  label: t('.city'), required: false, input_html: { class: 'search_field_cities' },
+   include_blank: true, selected: params.dig(:course, :city_id)
+  = f.input :organization_id, as: :select, collection: Organization.all,
+  label: t('.organization'), required: false, include_blank: true,
+  selected: params.dig(:course, :organization_id)
+  = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
+    label: t('.tags'), value_method: :name, required: false,
+    input_html: { multiple: "true", class: 'select2' },
+    selected: params.dig(:course, :tag_list)
+  = f.submit  t('.search')
+  = link_to t('.clear'), root_path
