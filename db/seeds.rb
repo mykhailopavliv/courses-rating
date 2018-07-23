@@ -31,6 +31,7 @@ course_pivorak = Course.create!(title:        title_pivorak,
                                 organization: organization,
                                 city:         city_lviv,
                                 tag_list:     %w[ruby rails],
-                                published:    true)
+                                published:    true,
+                                free:         true)
 
 Review.create!(text: 'The best Rugby course', author: user, course: course_pivorak)

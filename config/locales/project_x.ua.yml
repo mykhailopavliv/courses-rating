@@ -44,12 +44,17 @@ ua:
       tags: Теги
       save: Зберегти
       confirmation: Ви впевнені?
+    all:
+      approved: Course was approved
+      none: немає
+
   reviews:
     create:
-      created: Коммент був успішно видалений
+      created: Коммент був успішно створений
     destroy:
       destroyed: Коммент був успішно видалений
     all:
+      approved: Коммент був схвалений
       review-title: Комменти
       add-review: Новий коммент
       submit-button: Додати

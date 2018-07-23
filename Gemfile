@@ -46,6 +46,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pundit-matchers', '~> 1.6.0'
+  gem 'rails-controller-testing'
   gem 'reek'
   gem 'rspec-rails', '~> 3.7'
   gem 'shoulda-matchers', '~> 3.1'
@@ -79,4 +80,3 @@ gem 'pundit', git: 'https://github.com/varvet/pundit'
 gem 'rails-i18n', '~> 5.1'
 gem 'ratyrate'
 gem 'simple_form'
-

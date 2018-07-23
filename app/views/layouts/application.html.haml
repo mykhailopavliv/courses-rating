@@ -17,6 +17,8 @@
               %div.dropdown-menu
                 %a
                   = link_to 'Pending courses', pending_courses_path, class: 'dropdown-item'
+                %a
+                  = link_to 'Pending comments', pending_reviews_path, class: 'dropdown-item'
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
               = t('.language')
