@@ -12,13 +12,13 @@ class ReviewPolicy < ApplicationPolicy
 
   def create?
     return false unless user.present?
-    return true if user.role.eql?('admin')
+    return true if user.role?('admin')
     review.course.published?
   end
 
   def destroy?
     return false unless user.present?
-    user.role.eql?('admin')
+    user.role?('admin')
   end
 
   private

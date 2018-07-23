@@ -7,11 +7,13 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def permitted_attributes_for_create
-    default_course_attributes << :owner_id if user.present?
+    user.present? ? default_course_attributes << :owner_id : []
   end
 
   def permitted_attributes_for_update
-    default_course_attributes if user.present? && course.owner_id == user.id
+    return [] unless user.present?
+    return default_course_attributes << :owner_id if user.role?('admin')
+    course.owner_id == user.id ? default_course_attributes : []
   end
 
   def index?
@@ -19,7 +21,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def show?
-    return true if user.present? && user.role.eql?('admin')
+    return true if user.present? && user.role?('admin')
     scope.where(published: true).exists?
   end
 
@@ -34,7 +36,7 @@ class CoursePolicy < ApplicationPolicy
 
   def update?
     return false unless user.present?
-    return true if user.role.eql?('admin')
+    return true if user.role?('admin')
     course.owner_id == user.id && course.published?
   end
 
@@ -44,7 +46,7 @@ class CoursePolicy < ApplicationPolicy
 
   def destroy?
     return false unless user.present?
-    return true if user.role.eql?('admin')
+    return true if user.role?('admin')
     course.owner_id == user.id && course.published?
   end
 
