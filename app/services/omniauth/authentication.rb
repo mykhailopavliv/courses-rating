@@ -1,7 +1,7 @@
 module Omniauth
   class Authentication
     delegate :authenticated?, to: :policy
-    delegate :uid, :provider, :first_name, :last_name, :email, to: :receive
+    delegate :uid, :provider, :first_name, :last_name, :email, :url, to: :receive
 
     def initialize(params)
       @params = params
@@ -21,10 +21,10 @@ module Omniauth
 
     def user
       @user ||= ::User.find_or_create_by(email: email) do |user|
-        user.email      = email
-        user.first_name = first_name
-        user.last_name  = last_name
-        user.password   = Devise.friendly_token[0, 20]
+        user.first_name, user.last_name = fullname_params
+        user.url      = url
+        user.email    = email
+        user.password = Devise.friendly_token[0, 20]
       end
     end
 
@@ -41,6 +41,10 @@ module Omniauth
         user:     user,
         identity: identity
       )
+    end
+
+    def fullname_params
+      [first_name, last_name]
     end
   end
 end
