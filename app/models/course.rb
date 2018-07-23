@@ -1,8 +1,6 @@
 class Course < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: %i[slugged finders history]
-
-  ratyrate_rateable 'rating'
   acts_as_taggable_on :tags
   ratyrate_rateable 'rating'
 

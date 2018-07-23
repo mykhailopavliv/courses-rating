@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
   def create
-    @review = course.reviews.build(review_params)
+    @review        = course.reviews.build(review_params)
     @review.author = current_user
+    authorize @review
+
     if @review.save
       flash[:notice] = t('.created')
     else
@@ -11,7 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
+    @review = authorize course.reviews.find(params[:id])
     @review.destroy
     redirect_back(fallback_location: course_path(course))
     flash[:notice] = t('.destroyed')
@@ -20,7 +22,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:text)
+    permitted_attributes(Review)
   end
 
   def course

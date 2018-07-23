@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_132807) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
+    t.bigint "owner_id"
     t.boolean "published", default: false
     t.boolean "free"
     t.bigint "owner_id"
