@@ -1,0 +1,16 @@
+%div
+  - @reviews.each do |review|
+    %div.btn-group.float-right
+      = button_to 'Approve', pending_review_change_status_path(review), method: :get, class: 'btn btn-success'
+      = button_to 'Refuse', course_review_path(id: review.id, course_id: review.course.id), method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
+    %b
+      = review.text
+    by
+    %b
+      = review.author.first_name
+    to 
+    %b
+      = review.course.title
+    %hr
+
+!= pagy_nav_bootstrap(@pagy)

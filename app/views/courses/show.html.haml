@@ -15,8 +15,11 @@
       = link_to t('courses.form.url'), @course.url
     %h5
       %b
-        = t('courses.form.organization') 
-      = link_to @course.organization.name, @course.organization.site
+        = t('courses.form.organization')
+      - if @course.organization.present?
+        = link_to @course.organization.name, @course.organization.site
+      - else
+        = t('courses.all.none')
     %h5
       %b
         = t('courses.form.city')  
@@ -32,7 +35,7 @@
     %div
       %h4
         = t('reviews.all.review-title') 
-      = render @course.reviews
+      = render @course.reviews.published
     %hr
 
     %div

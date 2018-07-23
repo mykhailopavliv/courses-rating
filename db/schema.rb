@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_132658) do
+ActiveRecord::Schema.define(version: 2018_07_19_132807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_132658) do
     t.bigint "organization_id"
     t.string "slug"
     t.boolean "published", default: false
+    t.boolean "free"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
   end
 

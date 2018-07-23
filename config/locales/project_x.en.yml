@@ -44,12 +44,16 @@ en:
       tags: Tags
       save: Save
       confirmation: Are you sure?
+    all:
+      approved: Course was approved
+      none: none
   reviews:
     create:
       created: Review was successfully created
     destroy:
       destroyed: Review was successfully destroyed
     all:
+      approved: Review was approved
       review-title: Reviews
       add-review: Add review
       submit-button: Submit

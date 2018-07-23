@@ -2,12 +2,12 @@ class Courses::PendingController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(Course.unpublished, items: 5)
+    @pagy, @courses = pagy(Course.unpublished, items: 10)
   end
 
   def change_status
     course.toggle!(:published)
-    redirect_to pending_courses_path, notice: 'Course was approved'
+    redirect_to pending_courses_path, notice: t('courses.all.approved')
   end
 
   private

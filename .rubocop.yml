@@ -5,6 +5,7 @@ AllCops:
     - 'db/schema.rb'
     - 'config/initializers/simple_form_bootstrap.rb'
     - 'config/initializers/simple_form.rb'
+    - 'app/controllers/rater_controller.rb'
 
 
 Metrics/BlockLength:
@@ -19,6 +20,9 @@ Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/MixinUsage:
