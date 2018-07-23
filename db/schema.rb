@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_132807) do
     t.bigint "owner_id"
     t.boolean "published", default: false
     t.boolean "free"
+    t.bigint "owner_id"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
     t.index ["owner_id"], name: "index_courses_on_owner_id"
   end

@@ -27,7 +27,8 @@ class CoursesController < ApplicationController
 
   def update
     if course.update(course_params)
-      redirect_to course_path(course), notice: t('.updated')
+      params[:id] = course.slug
+      redirect_to course, notice: t('.updated')
     else
       render :edit
     end

@@ -73,7 +73,7 @@ gem 'bootstrap'
 gem 'devise'
 # Adds support for setting & reading environment variables in the Unix shell
 gem 'figaro'
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.2.0'
 gem 'jquery-rails'
 gem 'pagy'
 gem 'pundit', git: 'https://github.com/varvet/pundit'
