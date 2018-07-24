@@ -7,7 +7,7 @@ FactoryBot.define do
     tag_list     Faker::Lorem.words(4)
     city
     organization
-    user
+    owner
   end
 
   factory :courses, class: Course do
@@ -18,6 +18,6 @@ FactoryBot.define do
     sequence(:tag_list)     { Faker::Lorem.words(1) }
     city
     organization
-    user
+    owner
   end
 end

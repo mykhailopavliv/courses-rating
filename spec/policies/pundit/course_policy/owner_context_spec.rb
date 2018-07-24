@@ -4,7 +4,7 @@ describe CoursePolicy, 'for owner with' do
   subject { CoursePolicy.new(user, course) }
 
   let(:user) { create(:user) }
-  let(:course) { create(:course, user: user) }
+  let(:course) { create(:course, owner: user) }
   let(:resolved_scope) { described_class::Scope.new(user, Course.all).resolve }
 
   context 'published course' do
