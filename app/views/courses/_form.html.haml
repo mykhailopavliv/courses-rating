@@ -6,7 +6,7 @@
   = f.input :title, label: t('.title')
   = f.input :description, label: t('.description')
   = f.input :url, label: t('.url')
-  = f.input :city_id, as: :select, collection: City.all.map{ |city| city.name},
+  = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
     label: t('.city'), input_html: { class: 'search_field_cities' }
   = f.input :organization_id, as: :select, collection: Organization.all,
     label: t('.organization')
