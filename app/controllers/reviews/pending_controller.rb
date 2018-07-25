@@ -2,7 +2,7 @@ class Reviews::PendingController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @reviews = pagy(Review.unpublished, items: 10)
+    @pagy, @reviews = pagy(Review.unpublished.includes(:author, :course), items: 10)
   end
 
   def change_status

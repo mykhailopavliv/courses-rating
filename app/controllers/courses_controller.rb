@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(policy_scope(Course), items: 5)
+    @pagy, @courses = pagy(policy_scope(Course.published.includes(:logo_attachment)), items: 5)
     search_by_params if course_params.present?
   end
 
