@@ -23,6 +23,10 @@ module Omniauth
       info[:last_name]
     end
 
+    def url
+      info[:urls].try(:Facebook)
+    end
+
     protected
 
     attr_reader :params

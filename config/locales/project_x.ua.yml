@@ -1,4 +1,14 @@
 ua:
+  home:
+    index:
+      show: Показати
+    form:
+      title: Назва
+      city: Місто
+      organization: Організація
+      tags: Теги
+      search: Шукати
+      clear: Очистити пошук
   users:
     omniauth_callbacks:
       facebook:
@@ -41,6 +51,7 @@ ua:
       url: Сайт
       city: Місто
       organization: Організація
+      rating: Рейтинг
       tags: Теги
       save: Зберегти
       confirmation: Ви впевнені?
@@ -61,6 +72,8 @@ ua:
       error: Помилка
       author: Автор
       text: Текст
+      facebook: Фейсбук
+      author_url: Перейти
   pagy:
     nav:
       prev: "&lsaquo;&nbsp;Попередня"

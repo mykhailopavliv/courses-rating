@@ -35,3 +35,8 @@ course_pivorak = Course.create!(title:        title_pivorak,
                                 free:         true)
 
 Review.create!(text: 'The best Rugby course', author: user, course: course_pivorak)
+
+cities = File.read('app/assets/files/cities.yml').split
+cities.each do |city|
+  City.create(name: city)
+end

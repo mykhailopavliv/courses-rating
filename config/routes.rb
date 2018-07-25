@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
-  }, skip: %i[passwords registrations]
+    # }, skip: %i[passwords registrations] fail if login with facebook cancel
+  }
 
   resources :courses do
     scope module: 'courses' do

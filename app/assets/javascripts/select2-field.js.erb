@@ -1,0 +1,12 @@
+$(document).ready(function() {
+
+  $('.select2').select2({
+   tags: true,
+   tokenSeparators: [","]
+  });
+
+  $('.search_field_cities').select2({
+    Placeholder: '<%= I18n.t('select2.search.cities') %>',
+  });
+
+});
