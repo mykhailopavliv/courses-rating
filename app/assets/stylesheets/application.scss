@@ -4,7 +4,7 @@
 *= require_tree .
 *= require_self
 */
-@import 'bootstrap';
+@import "bootstrap";
 
 body {
   font-family: 'Tajawal', sans-serif;
@@ -42,6 +42,7 @@ body {
 .pagination {
   margin: 0 auto;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 img.raty-cancel {

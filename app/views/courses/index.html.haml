@@ -1,16 +1,12 @@
+= render 'form'
+
 %div
   - @courses.each do |course|
     - present course do |course_presenter|
-      %p= image_tag course_presenter.logo, size: '240x200'
+      %p= image_tag course_presenter.logo, size: '200x200'
     %div.btn-group.float-right
       = button_to t('.show'), course, method: :get, class: 'btn btn-success'
-      - if policy(course).edit?
-        = button_to t('.edit'), edit_course_path(course), method: :get, class: 'btn btn-warning'
-      - if policy(course).destroy?
-        = button_to t('.destroy'), course, method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
     = link_to course.title, course
     %hr
-%div.text-center
-  = link_to t('.new'), new_course_path if policy(Course.new).new?
 
 != pagy_nav_bootstrap(@pagy)
