@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
 
   def index
     @pagy, @courses = pagy(policy_scope(Course), items: 5)
+    search_by_params if course_params.present?
   end
 
   def show
@@ -10,7 +11,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    new_course
+    @course = authorize Course.new
   end
 
   def edit
@@ -18,7 +19,9 @@ class CoursesController < ApplicationController
   end
 
   def create
-    if create_course.save
+    @course = authorize Course.new(course_params)
+    @course.owner_id = current_user.id
+    if @course.save
       redirect_to courses_path, notice: t('.created')
     else
       render :new
@@ -45,16 +48,12 @@ class CoursesController < ApplicationController
     @course = authorize Course.friendly.find(params[:id])
   end
 
-  def new_course
-    @course = authorize Course.new
-  end
-
-  def create_course
-    params[:course][:owner_id] = current_user.id
-    @course = authorize Course.new(course_params)
+  def search_by_params
+    @pagy, @courses = pagy(SearchCourseQuery.new(course_params).call, items: 5)
   end
 
   def course_params
-    permitted_attributes(@course || Course)
+    course_params = params[:course]
+    course_params ? course_params.permit(:title, :city_id, :organization_id, tag_list: []) : {}
   end
 end

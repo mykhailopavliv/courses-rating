@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     resources :reviews
     root to: 'courses#index'
   end
-    
+
   post '/rate' => 'rater#create', :as => 'rate'
-  
-  root 'home#index'
+
+  root 'courses#index'
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: %i[create destroy]
   end
-  
+
   scope module: 'reviews', path: 'reviews' do
     resources :pending_reviews, only: %i[index], controller: 'pending', as: :pending_reviews do
       get 'change_status', controller: 'pending'

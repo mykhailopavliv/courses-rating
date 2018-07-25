@@ -1,16 +1,22 @@
-= simple_form_for course do |f|
+= simple_form_for :course, method: :get do |f|
   - present @course do |course_presenter|
     .upload-preview
       = image_tag course_presenter.logo, size: '240x200'
     = f.input :logo, as: :file, input_html: { class: 'file-img', accept: 'image/png,image/jpeg,image/jpg' }, label: false
-  = f.input :title, label: t('.title')
-  = f.input :description, label: t('.description')
-  = f.input :url, label: t('.url')
-  = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
-    label: t('.city'), input_html: { class: 'search_field_cities' }
+
+
+  = f.input :title, label: t('.title'), required: false,
+  input_html: { class: 'search_field_cities', value: params.dig(:course, :title)  }
+  = f.input :city_id, as: :select, collection: City.all.map{ |city| city.name },
+  label: t('.city'), required: false, input_html: { class: 'search_field_cities' },
+   include_blank: true, selected: params.dig(:course, :city_id)
   = f.input :organization_id, as: :select, collection: Organization.all,
-    label: t('.organization')
+  label: t('.organization'), required: false, include_blank: true,
+  selected: params.dig(:course, :organization_id)
   = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
-    label: t('.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2 btn' }
-  = f.submit t('.save'), class: 'btn btn-success'
-  = link_to t('.back'), root_path, class: 'btn btn-danger'
+    label: t('.tags'), value_method: :name, required: false,
+    input_html: { multiple: "true", class: 'select2' },
+    selected: params.dig(:course, :tag_list)
+
+  = f.submit  t('home.form.search'), class: 'btn btn-success'
+  = link_to t('.clear'), root_path, class: 'btn btn-info'
