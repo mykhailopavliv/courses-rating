@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_07_19_200348) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
-    t.boolean "published"
     t.bigint "owner_id"
+    t.boolean "published", default: false
     t.boolean "free"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
     t.index ["owner_id"], name: "index_courses_on_owner_id"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_200348) do
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "published"
+    t.boolean "published", default: false
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

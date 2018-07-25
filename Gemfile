@@ -82,4 +82,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'ratyrate'
 gem 'simple_form'
 gem 'aws-sdk-s3'
+<<<<<<< HEAD
 gem 'administrate'
+=======
+>>>>>>> 5c6cf8f8035e5a77f4e6d679b390f882b2cec9ed
