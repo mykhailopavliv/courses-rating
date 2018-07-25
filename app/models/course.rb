@@ -4,7 +4,7 @@ class Course < ApplicationRecord
   acts_as_taggable_on :tags
   ratyrate_rateable 'rating'
 
-  belongs_to :user, foreign_key: 'owner_id'
+  belongs_to :owner, class_name: 'User'
   belongs_to :organization, optional: true
   belongs_to :city
   has_many :reviews
