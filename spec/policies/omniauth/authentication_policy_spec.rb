@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe ::Omniauth::AuthenticationPolicy do
   let(:user)     { create(:user) }
   let(:identity) { create(:identity) }

@@ -10,9 +10,9 @@
       %div.container
         = link_to 'Project X', root_path, class: 'navbar-brand'
         %ul.navbar-nav.nounderline
-          - if user_signed_in? && current_user.role?('admin')
+          - if policy(:pending).change_status?
             %li.nav-item.dropdown
-              %a.nav-link.dropdown-toggle{"data-toggle"=>"dropdown"}
+              %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
                 Admin
               %div.dropdown-menu
                 %a
