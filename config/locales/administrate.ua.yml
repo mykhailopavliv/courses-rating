@@ -1,0 +1,25 @@
+ua:
+  administrate:
+    actions:
+      new_resource: "Створити %{name}"
+      show_resource: "Показати %{name}"
+      edit_resource: "Змінити %{name}"
+      confirm: Ви впевнені?
+      edit: Змінити
+      destroy: Видалити
+      back: Назад
+      exit: Вийти з адмін панелі
+    controller:
+      create:
+        success: "Успішно створено %{resource}."
+      destroy:
+        success: "Успішно видалено %{resource}."
+      update:
+        success: "Успішно оновлено %{resource}."
+    fields:
+      has_many:
+        more: "%{count} із %{total_count}"
+        none: Немає
+    search:
+      clear: Очистити пошук
+      label: пошук %{resource}
