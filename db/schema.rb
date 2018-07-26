@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_200348) do
+ActiveRecord::Schema.define(version: 2018_07_25_194811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_07_19_200348) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
-    t.bigint "owner_id"
     t.boolean "published", default: false
+    t.bigint "owner_id"
     t.boolean "free"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
     t.index ["owner_id"], name: "index_courses_on_owner_id"
@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_200348) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -11,6 +11,10 @@ module Omniauth
       end
     end
 
+    def avatar
+      info[:image]
+    end
+
     def email
       info[:email]
     end
@@ -24,7 +28,7 @@ module Omniauth
     end
 
     def url
-      info[:urls].try(:Facebook)
+      info.dig(:urls, :Facebook)
     end
 
     protected
