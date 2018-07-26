@@ -6,6 +6,8 @@ describe ::Courses::PendingController, type: :controller do
   let!(:course) { create_list(:course, 2, published: false) }
   let(:courses) { assigns(:courses) }
   let(:first_course_id) { course[0].id }
+  let(:user) { create(:user, role: 'admin') }
+  before { sign_in user }
 
   context 'index' do
     it 'return code 200' do

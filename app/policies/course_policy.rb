@@ -6,6 +6,10 @@ class CoursePolicy < ApplicationPolicy
     end
   end
 
+  def permitted_attributes_for_index
+    [:title, :city_id, :organization_id, tag_list: []] || []
+  end
+
   def permitted_attributes_for_create
     user.present? ? default_course_attributes << :owner_id : []
   end

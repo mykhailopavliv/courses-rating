@@ -67,6 +67,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'administrate'
+gem 'aws-sdk-s3'
 # acts as taggable on allows you to specify an arbitrary number of tag "contexts"
 # that can be used locally or in combination in the same way steroids was used.
 gem 'acts-as-taggable-on', '~> 6.0'
@@ -81,5 +83,3 @@ gem 'pundit', git: 'https://github.com/varvet/pundit'
 gem 'rails-i18n', '~> 5.1'
 gem 'ratyrate'
 gem 'simple_form'
-gem 'aws-sdk-s3'
-gem 'administrate'

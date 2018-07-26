@@ -12,9 +12,9 @@
         %ul.navbar-nav.nounderline
           %li.nav-item
             = link_to 'Новий курс', new_course_path, class: 'nav-link' if policy(Course.new).new?
-          - if user_signed_in? && current_user.role?('admin')
+          - if policy(:pending).change_status?
             %li.nav-item.dropdown
-              %a.nav-link.dropdown-toggle{"data-toggle"=>"dropdown"}
+              %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
                 Admin
               %div.dropdown-menu
                 %a

@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(policy_scope(Course.published.includes(:logo_attachment)), items: 5)
+    @pagy, @courses = pagy(policy_scope(Course), items: 5)
     search_by_params if course_params.present?
   end
 
@@ -20,8 +20,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = authorize Course.new(course_params)
-    @course.owner_id = current_user.id
-    if @course.save
+    if @course.update(owner_id: current_user.id)
       redirect_to courses_path, notice: t('.created')
     else
       render :new
@@ -53,7 +52,7 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    course_params = params[:course]
-    course_params ? course_params.permit(:title, :city_id, :organization_id, tag_list: []) : {}
+    return false unless params[:course].present?
+    permitted_attributes(@course || Course)
   end
 end
