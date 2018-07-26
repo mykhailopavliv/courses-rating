@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :courses
-  has_many :reviews
+  has_many :courses, class_name: 'Course', foreign_key: 'owner_id'
+  has_many :reviews, foreign_key: 'author_id'
   has_many :identities, dependent: :destroy
 
   def role?(role_name)

@@ -1,11 +1,13 @@
 $(document).ready(function() {
 
   $('.select2').select2({
+   theme: "bootstrap",
    tags: true,
    tokenSeparators: [","]
   });
 
   $('.search_field_cities').select2({
+    theme: "bootstrap",
     Placeholder: '<%= I18n.t('select2.search.cities') %>',
   });
 

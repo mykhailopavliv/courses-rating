@@ -36,7 +36,7 @@
       %div
         %h4
           = t('reviews.all.review-title')
-        = render policy_scope(@course.reviews)
+        = render policy_scope(@course.reviews.includes(:author))
 
     - if policy(@course.reviews.new).create?
       %hr

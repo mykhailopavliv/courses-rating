@@ -10,11 +10,15 @@
       %div.container
         = link_to 'Project X', root_path, class: 'navbar-brand'
         %ul.navbar-nav.nounderline
+          %li.nav-item
+            = link_to 'Новий курс', new_course_path, class: 'nav-link' if policy(Course.new).new?
           - if policy(:pending).change_status?
             %li.nav-item.dropdown
               %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
                 Admin
               %div.dropdown-menu
+                %a
+                  = link_to 'Admin Panel', admin_root_path, class: 'dropdown-item'
                 %a
                   = link_to 'Pending courses', pending_courses_path, class: 'dropdown-item'
                 %a
@@ -27,8 +31,6 @@
                 = link_to t('.ukraine'), url_for(locale: :ua), class: 'dropdown-item'
               %a
                 = link_to t('.english'), url_for(locale: :en), class: 'dropdown-item'
-          %li.nav-item
-            = link_to t('.courses'), courses_path, class: 'nav-link'     
           - if current_user.nil?
             %li.nav-item
               = link_to t('.login'), user_facebook_omniauth_authorize_path, class: 'nav-link'

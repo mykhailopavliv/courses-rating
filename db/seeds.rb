@@ -27,7 +27,7 @@ url_pivorak    = 'https://pivorak.com/courses/seasons/ruby-2018'
 course_pivorak = Course.create!(title:        title_pivorak,
                                 description:  desc_pivorak,
                                 url:          url_pivorak,
-                                user:         user,
+                                owner:        user,
                                 organization: organization,
                                 city:         city_lviv,
                                 tag_list:     %w[ruby rails],

@@ -1,0 +1,14 @@
+en:
+  administrate:
+    search:
+      label: 'Search...'
+    actions:
+      new_resource: "Create %{name}"
+      show_resource: "Show %{name}"
+      edit_resource: "Edit %{name}"
+      confirm: Are you sure?
+      edit: Edit
+      destroy: Delete
+      back: Back
+      exit: Exit from admin panel
+
