@@ -3,7 +3,6 @@ class CoursesController < ApplicationController
 
   def index
     @pagy, @courses = pagy(policy_scope(Course), items: 5)
-    puts 'course_params.present?.to_s = ' + course_params.present?.to_s
     search_by_params if course_params.present?
   end
 
