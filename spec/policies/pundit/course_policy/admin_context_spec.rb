@@ -17,7 +17,7 @@ describe CoursePolicy, 'for admin with' do
   context 'unpublished course' do
     let(:course) { create(:course) }
 
-    it('in resolved scope') { expect(resolved_scope).to include(course) }
+    it('in resolved scope') { expect(resolved_scope).to exclude(course) }
     include_context 'admin course policy context'
   end
 
