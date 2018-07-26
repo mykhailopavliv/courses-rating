@@ -3,7 +3,7 @@
 class SearchCourseQuery
   delegate :city_id, :organization_id, :title, :tag_list, to: :tags_receive
 
-  def initialize(params, relation = Course.all)
+  def initialize(params, relation = Course.published)
     @params = params
     @relation = relation
   end

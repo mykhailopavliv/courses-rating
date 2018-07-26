@@ -5,7 +5,189 @@
 *= require_self
 */
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+}
 
+a {
+  color: #C04A2C;
+  opacity: .5;
+}
+
+a:hover {
+  color: #C04A2C;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-weight: 700
+}
+
+header {
+  background-color: #C04A2C;
+  padding: 5px;
+}
+
+.header-logo img {
+  height: 50px;
+  float: left;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-item {
+  display: block;
+  float: left;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.dropdown-menu .dropdown-item a {
+  color: black;
+}
+
+main {
+  background-color: #EBEFF0;
+}
+
+input[type="text"] {
+  
+}
+
+.sr-inp {
+  width: 80%;
+  margin-bottom: 10px;
+  background-color: #E3E7EA;
+  padding: 8px;
+  color: black;
+  border-radius: 5px;
+  height: 40px!important;
+}
+
+
+::placeholder {
+  color: #B4BBBD;
+}
+
+.search-block {
+  width: 100%;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.filter-block {
+  width: 100%;
+}
+
+.content {
+  padding-top: 20px;
+}
+
+.aside {
+  padding-left: 35px;
+  width: 25%;
+  border-right: 1px solid rgb(206, 206, 206);
+  float: left;
+}
+
+.courses {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.courses-element {
+  margin: 11px;
+  width: 45%;
+  height: 136px;
+  background-color: white;
+  filter: drop-shadow(1px 2px 2px #B4BBBD);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.cours-logo {
+  overflow: hidden;
+  float: left;
+  margin: 0 15px 5px 0;
+}
+
+.course-info {
+  height: 90px;
+  overflow: hidden;
+}
+
+.cours-logo img {
+  width: 150px;
+  height: 90px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.course-name {
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: #525050;
+}
+
+.courses-element-top {
+  float: left;
+}
+
+.courses-element-bot {
+  padding: 5px 0 0 5px;
+  color: #686F7A;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between
+}
+
+.course-org {
+  color: #686F7A;
+}
+
+.paggi {
+  margin: 0 auto;
+  width: 0px;
+}
+
+.sorting {
+  font-size: 14px;
+}
+
+.sorting span {
+  font-weight: 600;  
+}
+.sr-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.block-title {
+  font-size: 15px;
+  font-weight: 600;
+  
+}
 body {
   font-family: 'Tajawal', sans-serif;
 }
@@ -23,7 +205,7 @@ body {
 
 .navbar {
   font-size: 20px;
-  height: 100px;
+  height: 60px;
   background: #f7f7f7
 }
 
@@ -42,7 +224,6 @@ body {
 .pagination {
   margin: 0 auto;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 img.raty-cancel {
