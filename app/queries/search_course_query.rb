@@ -11,9 +11,9 @@ class SearchCourseQuery
   def call
     relation
       .where('title ILIKE ?', "%#{title}%")
-      .where('city_id::text LIKE ?', "%#{city_id}%")
       .where('organization_id::text LIKE ?', "%#{organization_id}%")
-      .tagged_with(tag_list, any: true, wild: true)
+      #.where('city_id::text LIKE ?', "%#{city_id}%")
+      #.tagged_with(tag_list, any: true, wild: true)
   end
 
   private
