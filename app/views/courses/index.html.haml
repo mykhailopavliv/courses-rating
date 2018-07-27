@@ -19,7 +19,7 @@
             %span.block-title Filter by:
             %br/
             %p
-              = f.input :city_id, as: :select, collection: City.all.map{ |city| city.name },
+              = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
                 label: t('.city'), required: false, input_html: { class: 'sr-inp search_field_cities' },
                 include_blank: true, selected: params.dig(:course, :city_id)
               = f.input :organization_id, as: :select, collection: Organization.all,
