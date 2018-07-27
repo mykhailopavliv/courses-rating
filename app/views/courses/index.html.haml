@@ -62,4 +62,6 @@
                   Free
                 - else
                   Paid
-    != pagy_nav_bootstrap(@pagy)
+      .pagination
+        - if @pagy.pages > 1
+          != pagy_nav_bootstrap(@pagy)

@@ -68,7 +68,7 @@ header {
 
 main {
   background-color: #EBEFF0;
-  height: 100%;
+  height: 90%;
 }
 
 input[type="text"] {
@@ -228,8 +228,10 @@ body {
 }
 
 .pagination {
+  position: absolute;
+  top: 90%;
+  left: 50%;
   margin: 0 auto;
-  margin-top: 10px;
 }
 
 img.raty-cancel {
