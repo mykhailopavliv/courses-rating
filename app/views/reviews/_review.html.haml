@@ -1,16 +1,31 @@
-.comments-element
-  .user-avatar
-    - if review.author.avatar.present?
-      %img{:alt => "", :src => "#{review.author.avatar}"}
-    - else
-      %img{:alt => "", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Ua1kNXKh-SwzIt9jQtkDR9dbRK3jS-zkDLN2pPPBvDBgFuJDjA"}
+-# .comments-element
+-#   .user-avatar
+-#     - if review.author.avatar.present?
+-#       %img{:alt => "", :src => "#{review.author.avatar}"}
+-#     - else
+-#       %img{:alt => "", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Ua1kNXKh-SwzIt9jQtkDR9dbRK3jS-zkDLN2pPPBvDBgFuJDjA"}
 
-  .comment-info
-    .comments-user-info
-      %h5
-        = "#{review.author.first_name} #{review.author.last_name}"
-        %a{ href:"http://#{review.author.url}" } 
-          %i.fab.fa-facebook-square
-    .comments-text
-      = review.text
-  
+-#   .comment-info
+-#     .comments-user-info
+-#       %h5
+-#         = "#{review.author.first_name} #{review.author.last_name}"
+-#         %a{ href:"http://#{review.author.url}" } 
+-#           %i.fab.fa-facebook-square
+-#     .comments-text
+-#       = review.text
+.comments-container
+  %h1
+  %ul#comments-list.comments-list
+    %li
+      .comment-main-level
+        .comment-avatar
+          %img{:alt => "", :src => "#{review.author.avatar}"}
+        .comment-box
+          .comment-head
+            %h6.comment-name.by-author
+              %a{ href: "#{review.author.url}" } 
+                = "#{review.author.first_name} #{review.author.last_name}"
+            %span hace 20 minutos
+            %i.fa.fa-heart
+          .comment-content
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
