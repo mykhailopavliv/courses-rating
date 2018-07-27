@@ -60,6 +60,6 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def default_course_attributes
-    [:title, :description, :url, :rating, :city_id, :organization_id, :logo, tag_list: []]
+    [:title, :description, :url, :rating, :city_id, :organization_id, :logo, :free, tag_list: []]
   end
 end
