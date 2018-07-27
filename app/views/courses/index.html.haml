@@ -37,32 +37,33 @@
     .courses
       - @courses.each do |course|
         .courses-element
-          = link_to course_path(course) do
-            .courses-element-top
+          .courses-element-top
+            = link_to course_path(course) do
               .cours-logo
                 - present course do |course_presenter|
                   = image_tag course_presenter.logo
-              .course-info
-                .course-name
+            .course-info
+              .course-name
+                = link_to course_path(course) do
                   %span 
                     = course.title
-                .course-org
-                  %i.far.fa-building
-                  %span
-                    = course.organization.name
-            .courses-element-bot
-              .location
-                %i.fas.fa-map-marker-alt
+              .course-org
+                %i.far.fa-building
                 %span
-                  = course.city.name
-              .rating
-                = rating_for course, 'rating', readonly: true, noRatedMsg: ''
-              .pay
-                %span
-                  - if course.free
-                    Free
-                  - else
-                    Paid
-      .pagination
-        - if @pagy.pages > 1
-          != pagy_nav_bootstrap(@pagy)
+                  = course.organization.name
+          .courses-element-bot
+            .location
+              %i.fas.fa-map-marker-alt
+              %span
+                = course.city.name
+            .rating
+              = rating_for course, 'rating', readonly: true, noRatedMsg: ''
+            .pay
+              %span
+                - if course.free
+                  Free
+                - else
+                  Paid
+    .pagination
+      - if @pagy.pages > 1
+        != pagy_nav_bootstrap(@pagy)
