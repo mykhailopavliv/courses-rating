@@ -8,7 +8,8 @@ class Courses::PendingController < ApplicationController
 
   def change_status
     authorize :pending
-    course.toggle!(:published)
+    course.update(published: true)
+    CourseMailer.with(course: @course).approved_email.deliver_later
     redirect_to pending_courses_path, notice: t('courses.all.approved')
   end
 

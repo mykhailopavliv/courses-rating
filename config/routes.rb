@@ -33,4 +33,7 @@ Rails.application.routes.draw do
       get 'change_status', controller: 'pending'
     end
   end
+
+  # Used to add emails previewer route http://localhost:3000/letter_opener
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
