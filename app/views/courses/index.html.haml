@@ -1,12 +1,68 @@
-= render 'form'
-
-%div
-  - @courses.each do |course|
-    - present course do |course_presenter|
-      %p= image_tag course_presenter.logo, size: '200x200'
-    %div.btn-group.float-right
-      = button_to t('.show'), course, method: :get, class: 'btn btn-success'
-    = link_to course.title, course
-    %hr
-
-!= pagy_nav_bootstrap(@pagy)
+%main
+  .content
+    .aside
+      .sr-title
+        %i.fas.fa-search
+        %span Search your course
+        = simple_form_for :course, method: :get do |f|
+          .search-block
+            %span.block-title
+              Search by:
+            %p
+            = f.input :title, label: 'Name', required: false,
+              input_html: { class: 'search_field_cities sr-inp', value: params.dig(:course, :title) }
+            = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
+              label: t('.tags'), value_method: :name, required: false,
+              input_html: { multiple: "true", class: 'select2 sr-inp' },
+              selected: params.dig(:course, :tag_list)
+          .filter-block
+            %span.block-title Filter by:
+            %br/
+            %p
+              = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
+                label: t('.city'), required: false, input_html: { class: 'sr-inp search_field_cities' },
+                include_blank: true, selected: params.dig(:course, :city_id)
+              = f.input :organization_id, as: :select, collection: Organization.all,
+                label: t('.organization'), required: false, include_blank: true,
+                selected: params.dig(:course, :organization_id), input_html: { class: 'sr-inp' }
+          .button-block
+            = f.submit  t('home.form.search'), class: 'btn btn-success'
+            = link_to t('.clear'), root_path, class: 'btn btn-danger'
+    .center
+      .text-center.sorting
+        %span Sort by:
+        %a{:href => "#"} Popularity
+        |
+        %a{:href => "#"} Rating
+    .courses
+      - @courses.each do |course|
+        .courses-element
+          = link_to course_path(course) do
+            .courses-element-top
+              .cours-logo
+                - present course do |course_presenter|
+                  = image_tag course_presenter.logo
+              .course-info
+                .course-name
+                  %span 
+                    = course.title
+                .course-org
+                  %i.far.fa-building
+                  %span
+                    = course.organization.name
+            .courses-element-bot
+              .location
+                %i.fas.fa-map-marker-alt
+                %span
+                  = course.city.name
+              .rating
+                = rating_for course, 'rating', readonly: true, noRatedMsg: ''
+              .pay
+                %span
+                  - if course.free
+                    Free
+                  - else
+                    Paid
+      .pagination
+        - if @pagy.pages > 1
+          != pagy_nav_bootstrap(@pagy)

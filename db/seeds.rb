@@ -13,7 +13,6 @@ user = User.create!(first_name: 'Pavlo',
                     email:      'pavlokasianchuk@gmail.com',
                     password:   'pavlopass')
 
-city_lviv    = City.create!(name: 'Lviv')
 organization = Organization.create!(name:        'Pivorak',
                                     site:        'https://pivorak.com',
                                     description: 'Львівське об’єднання розробників')
@@ -24,19 +23,21 @@ This summer we are gathering a group of experienced Ruby developers to teach a
  2-month intensive Ruby & Ruby on Rails course to a class\n
 of (almost) complete beginners."
 url_pivorak    = 'https://pivorak.com/courses/seasons/ruby-2018'
+
+cities = File.read('app/assets/files/cities.yml').split
+cities.each do |city|
+  City.create(name: city)
+end
+
 course_pivorak = Course.create!(title:        title_pivorak,
                                 description:  desc_pivorak,
                                 url:          url_pivorak,
                                 owner:        user,
                                 organization: organization,
-                                city:         city_lviv,
+                                city_id:      1,
                                 tag_list:     %w[ruby rails],
                                 published:    true,
                                 free:         true)
 
 Review.create!(text: 'The best Rugby course', author: user, course: course_pivorak)
 
-cities = File.read('app/assets/files/cities.yml').split
-cities.each do |city|
-  City.create(name: city)
-end

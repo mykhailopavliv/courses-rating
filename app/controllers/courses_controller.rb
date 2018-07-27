@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(policy_scope(Course), items: 5)
+    @pagy, @courses = pagy(policy_scope(Course), items: 6)
     search_by_params if course_params.present?
   end
 
@@ -48,7 +48,7 @@ class CoursesController < ApplicationController
   end
 
   def search_by_params
-    @pagy, @courses = pagy(SearchCourseQuery.new(course_params).call, items: 5)
+    @pagy, @courses = pagy(SearchCourseQuery.new(course_params).call)
   end
 
   def course_params
