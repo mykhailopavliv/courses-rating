@@ -68,6 +68,7 @@ header {
 
 main {
   background-color: #EBEFF0;
+  height: 100%;
 }
 
 input[type="text"] {
@@ -84,18 +85,23 @@ input[type="text"] {
   height: 40px!important;
 }
 
-
 ::placeholder {
   color: #B4BBBD;
 }
 
 .search-block {
   width: 100%;
-  border-bottom: 1px solid rgb(206, 206, 206);
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .filter-block {
-  width: 100%;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.button-block {
+  margin-left: 42px;
 }
 
 .content {
@@ -178,15 +184,15 @@ input[type="text"] {
 .sorting span {
   font-weight: 600;  
 }
+
 .sr-title {
   font-size: 20px;
   font-weight: 600;
 }
 
 .block-title {
-  font-size: 15px;
-  font-weight: 600;
-  
+  font-size: 20px;
+  font-weight: 400;
 }
 body {
   font-family: 'Tajawal', sans-serif;
@@ -206,7 +212,7 @@ body {
 .navbar {
   font-size: 20px;
   height: 60px;
-  background: #f7f7f7
+  background: #C04A2C;
 }
 
 .navbar-brand {
@@ -233,4 +239,8 @@ img.raty-cancel {
 .rating {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered {
+  background-color: #E3E7EA;
 }
