@@ -57,7 +57,15 @@
               %span
                 = course.city.name
             .rating
-              = rating_for course, 'rating', readonly: true, noRatedMsg: ''
+              - filled_stars(course).times do 
+                %i.fa.fa-star
+              - blank_stars(course).times do
+                %i.far.fa-star
+              = average_rating(course)
+              - if rates_count(course) > 0
+                (
+                = reviews_count(course)
+                )
             .pay
               %span
                 - if course.free
