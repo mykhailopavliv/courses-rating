@@ -1,18 +1,3 @@
--# .comments-element
--#   .user-avatar
--#     - if review.author.avatar.present?
--#       %img{:alt => "", :src => "#{review.author.avatar}"}
--#     - else
--#       %img{:alt => "", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Ua1kNXKh-SwzIt9jQtkDR9dbRK3jS-zkDLN2pPPBvDBgFuJDjA"}
-
--#   .comment-info
--#     .comments-user-info
--#       %h5
--#         = "#{review.author.first_name} #{review.author.last_name}"
--#         %a{ href:"http://#{review.author.url}" } 
--#           %i.fab.fa-facebook-square
--#     .comments-text
--#       = review.text
 .comments-container
   %h1
   %ul#comments-list.comments-list
@@ -25,7 +10,10 @@
             %h6.comment-name.by-author
               %a{ href: "#{review.author.url}" } 
                 = "#{review.author.first_name} #{review.author.last_name}"
-            %span hace 20 minutos
-            %i.fa.fa-heart
+            %span
+              = time_ago_in_words(review.created_at)
+            - if current_user&.role?('admin')
+              = link_to [review.course, review], method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fa.fa-times
           .comment-content
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+            = review.text
