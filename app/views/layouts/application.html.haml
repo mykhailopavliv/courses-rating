@@ -6,43 +6,42 @@
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.2.0/css/all.css", :integrity => "sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ", :rel => "stylesheet"}/
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    %nav.navbar.navbar-expand-lg.navbar-light
-      %div.container
-        = link_to 'Project X', root_path, class: 'navbar-brand'
-        %ul.navbar-nav.nounderline
-          %li.nav-item
-            = link_to 'Новий курс', new_course_path, class: 'nav-link' if policy(Course.new).new?
-          - if policy(:pending).change_status?
-            %li.nav-item.dropdown
-              %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
-                Admin
-              %div.dropdown-menu
-                %a
-                  = link_to 'Admin Panel', admin_root_path, class: 'dropdown-item'
-                %a
-                  = link_to 'Pending courses', pending_courses_path, class: 'dropdown-item'
-                %a
-                  = link_to 'Pending comments', pending_reviews_path, class: 'dropdown-item'
-          %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle{'data-toggle': 'dropdown'}
-              = t('.language')
-            %div.dropdown-menu
-              %a
-                = link_to t('.ukraine'), url_for(locale: :ua), class: 'dropdown-item'
-              %a
-                = link_to t('.english'), url_for(locale: :en), class: 'dropdown-item'
-          - if current_user.nil?
-            %li.nav-item
-              = link_to t('.login'), user_facebook_omniauth_authorize_path, class: 'nav-link'
-          - else
-            %li.nav-item
-              = link_to t('.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
-    - if notice
-      %p.alert.alert-success
-        = notice
-    - if alert
-      %p.alert.alert-danger
-        = alert
-    %div
-      = yield
+    %body
+  %header
+    .header-container
+      .header-logo
+        = link_to root_path do
+          = image_tag('pic/code.png')
+      %ul.nav
+        %li.nav-element
+          = link_to 'Home', root_path
+        %li.nav-element
+          = link_to 'New Course', new_course_path if policy(Course.new).new?
+        %li.nav-element
+          %a{:href => "#about"} About
+      %ul.nav2
+        %li.dropdown
+          %a.dropbtn Admin
+          .dropdown-content
+            = link_to 'Admin Panel', admin_root_path
+            = link_to 'Pending courses', pending_courses_path
+            = link_to 'Pending comments', pending_reviews_path  
+        %li
+          %a{:href => "/?locale=ua"}
+            = image_tag('pic/ukraine.png')
+        %li
+          %a{:href => "/?locale=en"}
+            = image_tag('pic/united-states.png')
+        - if current_user.nil?
+          %li
+            = link_to t('.login'), user_facebook_omniauth_authorize_path
+        - else
+          %li
+            = link_to t('.logout'), destroy_user_session_path, method: :delete
+  -# - if notice
+  -#   %p.alert.alert-success
+  -#     = notice
+  -# - if alert
+  -#   %p.alert.alert-danger
+  -#     = alert
+  = yield

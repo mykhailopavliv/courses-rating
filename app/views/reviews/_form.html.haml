@@ -1,4 +1,6 @@
-%div.col-8.mx-auto
-  = simple_form_for [@course, @course.reviews.new] do |f|
+= simple_form_for [@course, @course.reviews.new] do |f|
+  .col-9
     = f.input :text, label: false
+  .col-2
     = f.button :submit, t('reviews.all.submit-button'), class: 'btn btn-success'
+
