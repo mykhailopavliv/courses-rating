@@ -1,26 +1,20 @@
 # frozen_string_literal: true
 
 class SearchCourseQuery
-  delegate :city_id, :organization_id, :title, :tag_list, to: :tags_receive
-
-  def initialize(params, relation = Course.all)
+  def initialize(params, relation = Course.published)
     @params = params
     @relation = relation
   end
 
   def call
-    relation
-      .where('title ILIKE ?', "%#{title}%")
-      .where('city_id::text LIKE ?', "%#{city_id}%")
-      .where('organization_id::text LIKE ?', "%#{organization_id}%")
-      .tagged_with(tag_list, any: true, wild: true)
+    courses = SearchCourse::SearchReceive.search_by_title(relation, params[:title])
+    courses = SearchCourse::SearchReceive.search_by_city_id(courses, params[:city_id])
+    courses = SearchCourse::SearchReceive.search_by_org_id(courses, params[:organization_id])
+    courses = SearchCourse::SearchReceive.search_by_tag_list(courses, params[:tag_list])
+    courses
   end
 
   private
 
   attr_reader :params, :relation
-
-  def tags_receive
-    @tags_receive ||= SearchCourse::TagReceive.new(params)
-  end
 end
