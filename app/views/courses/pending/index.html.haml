@@ -16,7 +16,9 @@
       - @courses.each do |course|
         .pending-title.float-left
           %p
-            = course.title
+            = link_to course_path(course) do
+              %span 
+                = course.title
         .pending-control.float-right
           %span
             = link_to change_status_course_path(course), method: :get do
@@ -24,4 +26,5 @@
             = link_to course, method: :delete, data: { confirm: t('courses.form.confirmation') } do
               %i.fas.fa-times
     .pagi-pending
-      != pagy_nav_bootstrap(@pagy)
+      - if @pagy.pages > 1
+        != pagy_nav_bootstrap(@pagy)
