@@ -1,19 +1,30 @@
+
 .main2
   .course-page
     = simple_form_for course do |f|
-      - present @course do |course_presenter|
-        .upload-preview
-          = image_tag course_presenter.logo, size: '240x200'
-        = f.input :logo, as: :file, input_html: { class: 'file-img', accept: 'image/png,image/jpeg,image/jpg' }, label: false
-      = f.input :title, label: t('.title')
-      = f.input :description, label: t('.description')
-      = f.input :url, label: t('.url')
-      = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
-        label: t('.city'), input_html: { class: 'search_field_cities' }
-      = f.input :organization_id, as: :select, collection: Organization.all,
-        label: t('.organization')
-      = f.input :free, as: :boolean, checked_value: true, unchecked_value: false
-      = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
-        label: t('.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2 btn' }
-      = f.submit t('courses.form.save'), class: 'btn btn-success'
-      = link_to t('.back'), root_path, class: 'btn btn-danger'
+      %h3 Add / Edit Course
+      %br/
+      .row
+        .edi.col-md-3.mb-3.float-left
+          .img-thumbnail
+            - present @course do |course_presenter|
+              .upload-preview
+                = image_tag course_presenter.logo, size: '250x200'
+          %br/
+          %br/
+          .input-group.mb-3
+            .custom-file
+              = f.input :logo, as: :file, input_html: { class: 'file-img', accept: 'image/png,image/jpeg,image/jpg' }, label: false
+        .col-md-9.mb-3.float-right
+          = f.input :title, label: t('.title')
+          = f.input :description, label: t('.description')
+          = f.input :url, label: t('.url')
+          = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
+            label: t('.city'), input_html: { class: 'search_field_cities' }
+          = f.input :organization_id, as: :select, collection: Organization.all,
+            label: t('.organization')
+          = f.input :free, as: :boolean, checked_value: true, unchecked_value: false
+          = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
+            label: t('.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2 btn' }
+          = f.submit t('courses.form.save'), class: 'btn btn-success'
+          = link_to t('.back'), root_path, class: 'btn btn-danger'

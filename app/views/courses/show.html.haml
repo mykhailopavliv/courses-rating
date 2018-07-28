@@ -1,5 +1,9 @@
 .main2
   .course-page{:style => "margin-bottom: 20px"}
+    .edit-course-icon
+      - if current_user&.role?('admin')
+        = link_to edit_course_path(@course), method: :get do
+          %span.fas.fa-pen-square
     .course-page-img
       - present @course do |course_presenter|
         = image_tag course_presenter.logo

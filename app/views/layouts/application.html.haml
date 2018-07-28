@@ -22,11 +22,12 @@
           %a{:href => "#about"} About
       %ul.nav2
         %li.dropdown
-          %a.dropbtn Admin
-          .dropdown-content
-            = link_to 'Admin Panel', admin_root_path
-            = link_to 'Pending courses', pending_courses_path
-            = link_to 'Pending comments', pending_reviews_path  
+          - if current_user&.role?('admin')
+            %a.dropbtn Admin
+            .dropdown-content
+              = link_to 'Admin Panel', admin_root_path
+              = link_to 'Pending courses', pending_courses_path
+              = link_to 'Pending comments', pending_reviews_path  
         %li
           %a{:href => "/?locale=ua"}
             = image_tag('pic/ukraine.png')
