@@ -2,13 +2,23 @@ ua:
   home:
     index:
       show: Показати
-    form:
-      title: Назва
-      city: Місто
-      organization: Організація
-      tags: Теги
-      search: Шукати
-      clear: Очистити пошук
+      free: Безкоштовно
+      paid: Платно
+    search:
+      title: Знайдіть свій курс
+      form:
+        search_by: Шукати за
+        name: Назвою
+        tags: Тегами
+        filter_by: Фільтрувати за
+        city: Містом
+        organization: Організацією
+        search: Пошук
+        clear: Очистити
+    sort_by:
+      sort_by: Сортувати за
+      popularity: Популярністю
+      rating: Рейтенгом
   users:
     omniauth_callbacks:
       facebook:
@@ -19,10 +29,11 @@ ua:
       logout: Вийти
   layouts:
     application:
+      home: Головна
+      about: Про нас
       language: Мова
       ukraine: Українська
       english: Англійська
-      courses: Курси
       login: Вхід
       logout: Вихід
   courses:

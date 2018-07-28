@@ -2,13 +2,23 @@ en:
   home:
     index:
       show: Show
-    form:
-      title: Title
-      city: City
-      organization: Organization
-      tags: Tags
-      search: Search
-      clear: Clear Form
+      free: Free
+      paid: Paid
+    search:
+      title: Search your course
+      form:
+        search_by: Search by
+        name: Name
+        tags: Tags
+        filter_by: Filter by
+        city: City
+        organization: Organization
+        search: Search
+        clear: Clear
+    sort_by:
+      sort_by: Sort by
+      popularity: Popularity
+      rating: Rating
   users:
     omniauth_callbacks:
       facebook:
@@ -19,10 +29,11 @@ en:
       logout: Logout
   layouts:
     application:
+      home: Home
+      about: About
       language: Language
       ukraine: Ukrainian
       english: English
-      courses: Courses
       login: Log In
       logout: Log Out
   courses:

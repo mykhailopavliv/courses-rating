@@ -3,7 +3,7 @@
     %title Project X
     = csrf_meta_tags
     = csp_meta_tag
-    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.2.0/css/all.css", :integrity => "sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ", :rel => "stylesheet"}/
+    %link{crossorigin: 'anonymous', href: 'https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity: 'sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', rel: 'stylesheet'}/
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %body
@@ -14,11 +14,11 @@
           = image_tag('pic/code.png')
       %ul.nav
         %li.nav-element
-          = link_to 'Home', root_path
+          = link_to t('layouts.application.home'), root_path
         %li.nav-element
-          = link_to 'New Course', new_course_path #if policy(Course.new).new?
+          = link_to t('courses.index.new'), new_course_path if policy(Course.new).new?
         %li.nav-element
-          %a{:href => "#about"} About
+          %a{:href => '#about'}= t('layouts.application.about')
       %ul.nav2
         - if policy(:pending).change_status?
           %li.dropdown
@@ -28,10 +28,10 @@
               = link_to 'Pending courses', pending_courses_path
               = link_to 'Pending comments', pending_reviews_path
         %li
-          %a{:href => "/?locale=ua"}
+          %a{href: '/?locale=ua'}
             = image_tag('pic/ukraine.png')
         %li
-          %a{:href => "/?locale=en"}
+          %a{href: '/?locale=en'}
             = image_tag('pic/united-states.png')
         - if current_user.nil?
           %li
