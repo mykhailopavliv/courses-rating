@@ -57,7 +57,7 @@ ua:
       confirmation: Ви впевнені?
     all:
       approved: Course was approved
-      none: немає
+      none: Немає
 
   reviews:
     create:

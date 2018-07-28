@@ -50,7 +50,10 @@
               .course-org
                 %i.far.fa-building
                 %span
-                  = course.organization.name
+                  - if course.organization.present?
+                    = link_to course.organization.name, course.organization.site
+                  - else
+                    = t('courses.all.none')
           .courses-element-bot
             .location
               %i.fas.fa-map-marker-alt
