@@ -234,10 +234,17 @@ body {
   text-decoration: none;
 }
 
-.pagination {
+.pagi {
   position: absolute;
   top: 92%;
   left: 50%;
+  margin: 0 auto;
+}
+
+.pagi-pending {
+  position: absolute;
+  top: 92%;
+  left: 40%;
   margin: 0 auto;
 }
 
