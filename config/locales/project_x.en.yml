@@ -2,23 +2,23 @@ en:
   home:
     index:
       show: Show
-    form:
-      title: Title
-      city: City
-      organization: Organization
-      tags: Tags
-      search: Search
-      clear: Clear Form
-  courses:
-    form:
-      title: Title
-      description: Description
-      url: Site
+      free: Free
+      paid: Paid
+    search:
+      title: Search your course
+      form:
+        search_by: Search by
+        name: Name
+        tags: Tags
+        filter_by: Filter by
+        city: City
+        organization: Organization
+        search: Search
+        clear: Clear
+    sort_by:
+      sort_by: Sort by
+      popularity: Popularity
       rating: Rating
-      city: City
-      organization: Organization
-      tags: Tags
-      save: Save
   users:
     omniauth_callbacks:
       facebook:
@@ -29,10 +29,11 @@ en:
       logout: Logout
   layouts:
     application:
+      home: Home
+      about: About
       language: Language
       ukraine: Ukrainian
       english: English
-      courses: Courses
       login: Log In
       logout: Log Out
   courses:
@@ -40,7 +41,7 @@ en:
       show: Show
       edit: Edit
       destroy: Delete
-      new: New
+      new: New course
     new:
       new: New course
       back: Back
@@ -66,6 +67,7 @@ en:
       save: Save
       confirmation: Are you sure?
     all:
+      add_edit: Add / Edit Course
       approved: Course was approved
       none: None
   reviews:

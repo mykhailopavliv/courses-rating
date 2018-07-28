@@ -3,37 +3,36 @@
     .aside
       .sr-title
         %i.fas.fa-search
-        %span Search your course
+        %span= t('home.search.title')
         = simple_form_for :course, method: :get do |f|
           .search-block
-            %span.block-title
-              Search by:
+            %span.block-title= t('home.search.form.search_by')
             %p
-            = f.input :title, label: 'Name', required: false,
+            = f.input :title, label: t('home.search.form.name'), required: false,
               input_html: { class: 'search_field_cities sr-inp', value: params.dig(:course, :title) }
             = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
-              label: t('.tags'), value_method: :name, required: false,
+              label: t('home.search.form.tags'), value_method: :name, required: false,
               input_html: { multiple: "true", class: 'select2 sr-inp' },
               selected: params.dig(:course, :tag_list)
           .filter-block
-            %span.block-title Filter by:
+            %span.block-title= t('home.search.form.filter_by')
             %br/
             %p
               = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
-                label: t('.city'), required: false, input_html: { class: 'sr-inp search_field_cities' },
+                label: t('home.search.form.city'), required: false, input_html: { class: 'sr-inp search_field_cities' },
                 include_blank: true, selected: params.dig(:course, :city_id)
               = f.input :organization_id, as: :select, collection: Organization.all,
-                label: t('.organization'), required: false, include_blank: true,
+                label: t('home.search.form.organization'), required: false, include_blank: true,
                 selected: params.dig(:course, :organization_id), input_html: { class: 'sr-inp' }
           .button-block
-            = f.submit  t('home.form.search'), class: 'btn btn-success'
-            = link_to t('.clear'), root_path, class: 'btn btn-danger'
+            = f.submit t('home.search.form.search'), class: 'btn btn-success'
+            = link_to t('home.search.form.clear'), root_path, class: 'btn btn-danger'
     .center
       .text-center.sorting
-        %span Sort by:
-        %a{:href => "#"} Popularity
+        %span= t('home.sort_by.sort_by')
+        %a{href: '#'}= t('home.sort_by.popularity')
         |
-        %a{:href => "#"} Rating
+        %a{href: '#'}= t('home.sort_by.rating')
     .courses
       - @courses.each do |course|
         .courses-element
@@ -72,9 +71,9 @@
             .pay
               %span
                 - if course.free
-                  Free
+                  = t('home.index.free')
                 - else
-                  Paid
+                  = t('home.index.paid')
     .pagi
       - if @pagy.pages > 1
         != pagy_nav_bootstrap(@pagy)
