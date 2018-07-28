@@ -15,6 +15,10 @@
   outline: none;
 }
 
+body {
+  background-color: #EBEFF0;
+}
+
 a {
   color: #C04A2C;
   opacity: .5;
@@ -75,7 +79,6 @@ main {
   padding-top: 20px;
   display: flex;
   flex-direction: column;
-  background-color: #EBEFF0;
 }
 
 .sr-inp {
@@ -85,7 +88,7 @@ main {
   padding: 8px;
   color: black;
   border-radius: 5px;
-  height: 40px!important;
+  height: 40px !important;
 }
 
 ::placeholder {
@@ -185,7 +188,7 @@ main {
 }
 
 .sorting span {
-  font-weight: 600;  
+  font-weight: 600;
 }
 
 .sr-title {
@@ -197,6 +200,7 @@ main {
   font-size: 20px;
   font-weight: 400;
 }
+
 body {
   font-family: 'Tajawal', sans-serif;
 }
@@ -247,30 +251,6 @@ img.raty-cancel {
 
 .select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered {
   background-color: #E3E7EA;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  border: 0;
-  font-family: 'Open Sans', sans-serif;
-  outline: none;
-}
-
-a {
-  color: #C04A2C;
-  opacity: .5;
-}
-
-a:hover {
-  color: #C04A2C;
-  text-decoration: none;
-  opacity: 1;
-}
-
-h2 {
-  font-weight: 700
 }
 
 header {
@@ -360,8 +340,6 @@ input[type="text"] {
   flex-flow: row wrap;
   justify-content: center;
 }
-
-.center {}
 
 .courses-element {
   margin: 11px;
@@ -576,7 +554,7 @@ input[type="text"] {
 }
 
 .nav2 li {
-  float: left; 
+  float: left;
 }
 
 .nav2 li a {
@@ -590,6 +568,7 @@ input[type="text"] {
 .nav2 li a:hover {
   background-color: rgb(145, 47, 22);
 }
+
 .dropbtn {
   padding: 16px;
   font-size: 16px;
@@ -622,7 +601,7 @@ input[type="text"] {
 
 .dropdown-content a:hover {
   background-color: rgb(145, 47, 22);
-  color: white !important; 
+  color: white !important;
 }
 
 .dropdown:hover .dropdown-content {
@@ -632,7 +611,6 @@ input[type="text"] {
 .course-page-rating {
   margin-bottom: 7px;
 }
-
 
 .tag {
   background: #eee;
@@ -677,7 +655,172 @@ input[type="text"] {
 }
 
 .tag:hover::after {
-   border-left-color: crimson; 
+  border-left-color: crimson;
+}
+
+/* Сomments */
+
+.comments-container {
+  margin: 60px auto 15px;
+  width: 80%;
+}
+
+.comments-container h1 {
+  font-size: 36px;
+  color: #283035;
+  font-weight: 400;
+}
+
+.comments-container h1 a {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.comments-list {
+  margin-top: 30px;
+  position: relative;
+}
+
+.reply-list:before,
+.reply-list:after {
+  display: none;
+}
+
+.reply-list li:before {
+  content: '';
+  width: 60px;
+  height: 2px;
+  background: #c7cacb;
+  position: absolute;
+  top: 25px;
+  left: -55px;
+}
+
+.comments-list li {
+  margin-bottom: 15px;
+  display: block;
+  position: relative;
+}
+
+/**
+* Avatar
+---------------------------*/
+
+.comments-list .comment-avatar {
+  width: 65px;
+  height: 65px;
+  margin-right: 30px;
+  position: relative;
+  z-index: 99;
+  float: left;
+  border: 1px solid #FFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.comments-list .comment-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.reply-list .comment-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.comment-main-level:after {
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  clear: both;
+}
+
+/**
+* Caja del Comentario
+---------------------------*/
+
+.comments-list .comment-box {
+  width: 80%;
+  float: left;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.comments-list .comment-box:before,
+.comments-list .comment-box:after {
+  content: '';
+  height: 0;
+  width: 0;
+  position: absolute;
+  display: block;
+  border-width: 10px 12px 10px 0;
+  border-style: solid;
+  border-color: transparent #FCFCFC;
+  top: 8px;
+  left: -11px;
+}
+
+.comments-list .comment-box:before {
+  border-width: 11px 13px 11px 0;
+  border-color: transparent rgba(0, 0, 0, 0.05);
+  left: -12px;
+}
+
+.comment-box .comment-head {
+  background: #FCFCFC;
+  padding: 10px 12px;
+  border-bottom: 1px solid #E5E5E5;
+  overflow: hidden;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+
+.comment-box .comment-head i {
+  float: right;
+  margin-left: 14px;
+  position: relative;
+  top: 2px;
+  color: #A6A6A6;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.comment-box .comment-head i:hover {
+  color: #03658c;
+}
+
+.comment-box .comment-name {
+  color: #283035;
+  font-size: 14px;
+  font-weight: 700;
+  float: left;
+  margin-right: 10px;
+}
+
+.comment-box .comment-name a {
+  color: #283035;
+}
+
+.comment-box .comment-head span {
+  float: left;
+  color: #999;
+  font-size: 13px;
+  position: relative;
+  top: 1px;
+}
+
+.comment-box .comment-content {
+  background: #FFF;
+  padding: 12px;
+  font-size: 15px;
+  color: #595959;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
 }
 
 .edit-course-icon {
@@ -686,47 +829,43 @@ input[type="text"] {
   font-size: 40px;
 }
 
-.edit-course img {
-  width: 100%;
-}
-.comment-list {
-  list-style-type: none;
-  margin: 0 auto;
-  width: 100%;
-}
-.comment-info {
-  width: 95%;
-  padding: 10px 10px 10px 50px;
-}
-.comment-avatar {
-  position: absolute;
-  left: 1%;
-  top: 17px;
-}
-.comment-block {
-  width: 100%;
-  position: relative;
-}
-.comment-avatar img {
-  height: 80px;
-}
-.comment-info {
-  background-color: #EEEEEE;
-}
-.comment-block:nth-child(even){
-  width: 96%;
-  float: right;
-}
-.comment-user {
-  font-size: 17px;
-  font-weight: bold;
+.pending-title {
+  width: 90%;
 }
 
-.edit-course img {
-  width: 100%;
- }
+.pending-element {
+  margin: 15px 0;
+  padding: 5px;
+  border-bottom: 1px solid rgba(180, 187, 189, 0.5);
+}
 
-.comment-time {
-  font-size: 13px;
-  opacity: .5;
-} 
+.pending-element:last-child {
+  border: 0;
+}
+
+.pending-control button {
+  background-color: white;
+  width: 25px;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+
+.fa-check,
+.fa-times {
+  font-size: 25px;
+  transition: 0.5s;
+}
+
+.fa-check:hover {
+  color: rgb(2, 158, 2);
+}
+
+.fa-times:hover {
+  color: red
+}
+
+
+.edit-course img{
+ width: 100%;
+}
