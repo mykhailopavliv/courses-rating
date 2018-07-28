@@ -67,6 +67,7 @@ en:
       save: Save
       confirmation: Are you sure?
     all:
+      add_edit: Add / Edit Course
       approved: Course was approved
       none: None
   reviews:

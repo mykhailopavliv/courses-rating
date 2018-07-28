@@ -1,10 +1,30 @@
-%div
-  - @courses.each do |course|
-    %div.btn-group.float-right
-      - if policy(:pending).index?
-        = button_to 'Approve', change_status_course_path(course), method: :get, class: 'btn btn-success'
-        = button_to 'Refuse', course, method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
-    = link_to course.title, course
-    %hr
+-# %div
+-#   - @courses.each do |course|
+-#     %div.btn-group.float-right
+-#       - if policy(:pending).index?
+-#         
+-#         = button_to 'Refuse', course, method: :delete, data: { confirm: t('courses.form.confirmation') }, class: 'btn btn-danger'
+-#     = link_to course.title, course
+-#     %hr
 
-!= pagy_nav_bootstrap(@pagy)
+-#!= pagy_nav_bootstrap(@pagy)
+
+.main2
+  .course-page
+    %h3 Pending courses
+    .pending-element.clearfix
+      - @courses.each do |course|
+        .pending-title.float-left
+          %p
+            = link_to course_path(course) do
+              %span 
+                = course.title
+        .pending-control.float-right
+          %span
+            = link_to change_status_course_path(course), method: :get do
+              %i.fas.fa-check
+            = link_to course, method: :delete, data: { confirm: t('courses.form.confirmation') } do
+              %i.fas.fa-times
+    .pagi-pending
+      - if @pagy.pages > 1
+        != pagy_nav_bootstrap(@pagy)

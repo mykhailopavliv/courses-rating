@@ -67,6 +67,7 @@ ua:
       save: Зберегти
       confirmation: Ви впевнені?
     all:
+      add_edit: Додати / Редагувати Курс
       approved: Курс був затверджений
       none: Немає
   reviews:

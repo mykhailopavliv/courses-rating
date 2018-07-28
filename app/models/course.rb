@@ -13,6 +13,7 @@ class Course < ApplicationRecord
   scope :published, -> { where(published: true) }
   scope :unpublished, -> { where(published: false) }
   scope :free_courses, -> { where(free: true) }
+  scope :rating_order, -> { joins("INNER JOIN rating_caches ON rating_caches.cacheable_id = courses.id").order('rating_caches DESC') }
 
   def should_generate_new_friendly_id?
     title_changed?

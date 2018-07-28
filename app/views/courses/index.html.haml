@@ -36,32 +36,44 @@
     .courses
       - @courses.each do |course|
         .courses-element
-          = link_to course_path(course) do
-            .courses-element-top
+          .courses-element-top
+            = link_to course_path(course) do
               .cours-logo
                 - present course do |course_presenter|
                   = image_tag course_presenter.logo
-              .course-info
-                .course-name
+            .course-info
+              .course-name
+                = link_to course_path(course) do
                   %span 
                     = course.title
-                .course-org
-                  %i.far.fa-building
-                  %span
-                    = course.organization.name
-            .courses-element-bot
-              .location
-                %i.fas.fa-map-marker-alt
+              .course-org
+                %i.far.fa-building
                 %span
-                  = course.city.name
-              .rating
-                = rating_for course, 'rating', readonly: true, noRatedMsg: ''
-              .pay
-                %span
-                  - if course.free
-                    = t('home.index.free')
+                  - if course.organization.present?
+                    = link_to course.organization.name, course.organization.site
                   - else
-                    = t('home.index.paid')
-      .pagination
-        - if @pagy.pages > 1
-          != pagy_nav_bootstrap(@pagy)
+                    = t('courses.all.none')
+          .courses-element-bot
+            .location
+              %i.fas.fa-map-marker-alt
+              %span
+                = course.city.name
+            .rating
+              - filled_stars(course).times do 
+                %i.fa.fa-star
+              - blank_stars(course).times do
+                %i.far.fa-star
+              = average_rating(course)
+              - if rates_count(course) > 0
+                (
+                = reviews_count(course)
+                )
+            .pay
+              %span
+                - if course.free
+                  = t('home.index.free')
+                - else
+                  = t('home.index.paid')
+    .pagi
+      - if @pagy.pages > 1
+        != pagy_nav_bootstrap(@pagy)
