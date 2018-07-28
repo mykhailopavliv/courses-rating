@@ -1,19 +1,23 @@
-.comments-container
-  %h1
-  %ul#comments-list.comments-list
-    %li
-      .comment-main-level
-        .comment-avatar
-          %img{:alt => "", :src => "#{review.author.avatar}"}
-        .comment-box
-          .comment-head
-            %h6.comment-name.by-author
-              %a{ href: "#{review.author.url}" } 
-                = "#{review.author.first_name} #{review.author.last_name}"
-            %span
+.comments
+  %ul.comment-list
+    %li.comment-block.clearfix
+      .comment-avatar
+        %img{:src => "#{review.author.avatar}"}
+      .comment-info.float-right.clearfix
+        .comment-info-head.clearfix
+          .float-left
+            %a.comment-user{:href => ""}
+              = "#{review.author.first_name} #{review.author.last_name}"
+            %br
+            %span.comment-time
+              %i.far.fa-clock
               = time_ago_in_words(review.created_at)
+          .float-right
             - if current_user&.role?('admin')
-              = link_to [review.course, review], method: :delete, data: { confirm: 'Are you sure?' } do
-                %i.fa.fa-times
-          .comment-content
+              = link_to [review.course, review], method: :delete, data: { confirm: 'Are you sure?' }
+              %i.fa.fa-times
+        %hr/
+        .comment-info-main
+          %p
             = review.text
+    
