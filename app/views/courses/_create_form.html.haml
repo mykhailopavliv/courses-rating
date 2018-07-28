@@ -3,14 +3,14 @@
     .upload-preview
       = image_tag course_presenter.logo, size: '240x200'
     = f.input :logo, as: :file, input_html: { class: 'file-img', accept: 'image/png,image/jpeg,image/jpg' }, label: false
-  = f.input :title, label: t('.title')
-  = f.input :description, label: t('.description')
-  = f.input :url, label: t('.url')
+  = f.input :title, label: t('home.form.title')
+  = f.input :description, label: t('courses.form.description')
+  = f.input :url, label: t('courses.form.url')
   = f.input :city_id, as: :select, collection: City.all.map{ |city| [city.name, city.id] },
-    label: t('.city'), input_html: { class: 'search_field_cities' }
+    label: t('courses.form.city'), input_html: { class: 'search_field_cities' }
   = f.input :organization_id, as: :select, collection: Organization.all,
-    label: t('.organization')
+    label: t('courses.form.organization')
   = f.input :tag_list, as: :select, collection: Course.tag_counts_on(:tags),
-    label: t('.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2 btn' }
+    label: t('courses.form.tags'), value_method: :name, input_html: { multiple: "true", class: 'select2 btn' }
   = f.submit t('courses.form.save'), class: 'btn btn-success'
-  = link_to t('.back'), root_path, class: 'btn btn-danger'
+  = link_to t('courses.new.back'), root_path, class: 'btn btn-danger'

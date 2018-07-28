@@ -16,16 +16,17 @@
         %li.nav-element
           = link_to 'Home', root_path
         %li.nav-element
-          = link_to 'New Course', new_course_path if policy(Course.new).new?
+          = link_to 'New Course', new_course_path #if policy(Course.new).new?
         %li.nav-element
           %a{:href => "#about"} About
       %ul.nav2
-        %li.dropdown
-          %a.dropbtn Admin
-          .dropdown-content
-            = link_to 'Admin Panel', admin_root_path
-            = link_to 'Pending courses', pending_courses_path
-            = link_to 'Pending comments', pending_reviews_path  
+        - if policy(:pending).change_status?
+          %li.dropdown
+            %a.dropbtn Admin
+            .dropdown-content
+              = link_to 'Admin Panel', admin_root_path
+              = link_to 'Pending courses', pending_courses_path
+              = link_to 'Pending comments', pending_reviews_path
         %li
           %a{:href => "/?locale=ua"}
             = image_tag('pic/ukraine.png')
@@ -38,10 +39,10 @@
         - else
           %li
             = link_to t('.logout'), destroy_user_session_path, method: :delete
-  -# - if notice
-  -#   %p.alert.alert-success
-  -#     = notice
-  -# - if alert
-  -#   %p.alert.alert-danger
-  -#     = alert
+  - if notice
+    %p.alert.alert-success
+      = notice
+  - if alert
+    %p.alert.alert-danger
+      = alert
   = yield

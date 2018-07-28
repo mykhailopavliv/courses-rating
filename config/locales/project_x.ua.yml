@@ -31,13 +31,13 @@ ua:
       edit: Редагувати
       destroy: Видалити
       new: Новий курс
+    new:
+      new: Новий курс
+      back: Назад
     create:
       created: Курс був успішно створений
     update:
       updated: Курс був успішно оновлений
-    new:
-      new: Новий курс
-      back: Назад
     edit:
       editing: Редагувати курс
       show: Показати
@@ -56,9 +56,8 @@ ua:
       save: Зберегти
       confirmation: Ви впевнені?
     all:
-      approved: Course was approved
-      none: немає
-
+      approved: Курс був затверджений
+      none: Немає
   reviews:
     create:
       created: Коммент був успішно створений

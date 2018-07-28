@@ -9,16 +9,6 @@ en:
       tags: Tags
       search: Search
       clear: Clear Form
-  courses:
-    form:
-      title: Title
-      description: Description
-      url: Site
-      rating: Rating
-      city: City
-      organization: Organization
-      tags: Tags
-      save: Save
   users:
     omniauth_callbacks:
       facebook:
@@ -40,7 +30,7 @@ en:
       show: Show
       edit: Edit
       destroy: Delete
-      new: New
+      new: New course
     new:
       new: New course
       back: Back
@@ -67,7 +57,7 @@ en:
       confirmation: Are you sure?
     all:
       approved: Course was approved
-      none: none
+      none: None
   reviews:
     create:
       created: Review was successfully created
