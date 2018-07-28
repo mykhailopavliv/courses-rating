@@ -2,7 +2,8 @@ class CoursesController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @courses = pagy(policy_scope(Course), items: 6)
+    course_order = Course.order(updated_at: :desc)
+    @pagy, @courses = pagy(policy_scope(course_order), items: 6)
     search_by_params if course_params.present?
   end
 
