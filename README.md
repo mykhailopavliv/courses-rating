@@ -1,24 +1,7 @@
-# README
+## Project that we, together with my team, did at practical part of the #pivorak Ruby Summer Course 2018
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Goals
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Make an independent rating of Ukrainian courses
+* Help those who want to find the best courses
+* Make the world a little better :)
