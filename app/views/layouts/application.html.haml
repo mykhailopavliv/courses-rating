@@ -40,10 +40,10 @@
         - else
           %li
             = link_to t('.logout'), destroy_user_session_path, method: :delete
-  - if notice
-    %p.alert.alert-success
-      = notice
-  - if alert
-    %p.alert.alert-danger
-      = alert
+  -# - if notice
+  -#   %p.alert.alert-success
+  -#     = notice
+  -# - if alert
+  -#   %p.alert.alert-danger
+  -#     = alert
   = yield
