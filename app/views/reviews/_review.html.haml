@@ -2,11 +2,11 @@
   %ul.comment-list
     %li.comment-block.clearfix
       .comment-avatar
-        %img{src: "#{user_avatar(review)}" } 
+        %img{src: "#{user_avatar(review)}"} 
       .comment-info.float-right.clearfix
         .comment-info-head.clearfix
           .float-left
-            %a.comment-user{:href => ""}
+            %a.comment-user{:href => "#{review.author}"}
               = "#{review.author.first_name} #{review.author.last_name}"
             %br
             %span.comment-time
@@ -20,4 +20,17 @@
         .comment-info-main
           %p
             = review.text
+-#           .fb-comments{"data-href" => "https://developers.facebook.com/docs/plugins/comments#configurator", "data-numposts" => "5"}
+
+-# #fb-root
+-# :javascript
+-#   (function(d, s, id) {
+-#     var js, fjs = d.getElementsByTagName(s)[0];
+-#     if (d.getElementById(id)) return;
+-#     js = d.createElement(s); js.id = id;
+-#     js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=1019055704927361&autoLogAppEvents=1';
+-#     fjs.parentNode.insertBefore(js, fjs);
+-#     console.log(fjs);
+ 
+-#   }(document, 'script', 'facebook-jssdk'));
     

@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
     course_order = Course.order(updated_at: :desc) # .rating_order
     @pagy, @courses = pagy(policy_scope(course_order), items: 6)
     search_by_params if course_params.present?
+    @courses = Course.includes(:logo_attachment, :organization, :city, :rating_average)
   end
 
   def show
