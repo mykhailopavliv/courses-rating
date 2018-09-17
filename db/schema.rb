@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_07_25_194811) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.string "slug"
-    t.bigint "owner_id"
     t.boolean "published", default: false
+    t.bigint "owner_id"
     t.boolean "free"
     t.index ["organization_id"], name: "index_courses_on_organization_id"
     t.index ["owner_id"], name: "index_courses_on_owner_id"
