@@ -29,4 +29,8 @@ module ApplicationHelper
   def reviews_count(course)
     rates_count(course) if rates_count(course) >= 1
   end
+
+  def user_avatar(review)
+    review.author.avatar + '?type=large'
+  end
 end

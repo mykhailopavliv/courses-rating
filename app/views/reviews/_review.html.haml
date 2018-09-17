@@ -2,7 +2,7 @@
   %ul.comment-list
     %li.comment-block.clearfix
       .comment-avatar
-        %img{:src => "#{review.author.avatar}"}
+        %img{src: "#{user_avatar(review)}" } 
       .comment-info.float-right.clearfix
         .comment-info-head.clearfix
           .float-left
