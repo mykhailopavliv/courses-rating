@@ -24,3 +24,6 @@ $(document).ready(function () {
         reader.readAsDataURL(file);
     });
 });
+
+if (window.location.hash == '#_=_')
+  window.location.hash = '';
