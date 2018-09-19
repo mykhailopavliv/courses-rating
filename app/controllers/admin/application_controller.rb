@@ -7,10 +7,9 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_admin
-    before_action :authenticate_admin_user!
 
     def authenticate_admin
-      redirect_to root_url unless current_user.try(:admin?)
+      redirect_to root_url unless current_user&.role?('admin')
     end
   end
 end
