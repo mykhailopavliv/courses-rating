@@ -21,7 +21,7 @@
       %ul.course-info-list
         %li
           %i.fas.fa-globe-americas
-          = link_to @course.url
+          = link_to @course.url, @course.url
         %li
           %i.far.fa-building
           - if @course.organization.present?
