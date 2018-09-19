@@ -16,7 +16,7 @@
         - (@course.tag_list).each do |tag|
           %a.tag{:href => "#"}
             = tag
-      %pb
+      %p
         = @course.description
       %ul.course-info-list
         %li
@@ -41,4 +41,17 @@
     .comments
       = render policy_scope(@course.reviews.includes(:author))
       = render 'reviews/form'
+-#   .row.clearfix
+-#     .col.center-block.text-center
+-#       .fb-comments{"data-href" => "http://localhost:3000/courses/" + "#{@course.title}", "data-numposts" => "5", :style => "background: white"}
+
+-# #fb-root
+-# :javascript
+-#   (function(d, s, id) {
+-#     var js, fjs = d.getElementsByTagName(s)[0];
+-#     if (d.getElementById(id)) return;
+-#     js = d.createElement(s); js.id = id;
+-#     js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=1019055704927361&autoLogAppEvents=1';
+-#     fjs.parentNode.insertBefore(js, fjs);
+-#   }(document, 'script', 'facebook-jssdk'));
       
